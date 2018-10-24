@@ -1,0 +1,178 @@
+.section-heading {
+	width: 100%;
+	position: relative;
+	margin: 68px auto 40px;
+	text-align: center;
+}
+
+h2 {
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+}
+
+h2:after {
+	display: inline-block;
+	margin: 0 0 8px 20px;
+	height: 1px;
+	content: " ";
+	text-shadow: none;
+	background-color: #999;
+	width: 430px;
+}
+
+h2:before {
+	display: inline-block;
+	margin: 0 20px 8px 0;
+	height: 1px;
+	content: " ";
+	text-shadow: none;
+	background-color: #999;
+	width: 430px;
+}
+
+.col_white_footermain {
+	color: #FFF;
+}
+
+footer {
+	margin-top: 50px;
+	width: 100%;
+	background-color: #000000;
+	min-height: 250px;
+	padding: 10px 0px 25px 0px;
+}
+
+.pt2 {
+	padding-top: 40px;
+	margin-bottom: 20px;
+}
+
+footer p {
+	font-size: 13px;
+	color: #CCC;
+	padding-bottom: 0px;
+	margin-bottom: 8px;
+}
+
+.mb10 {
+	padding-bottom: 15px;
+}
+
+.footer_ul_align {
+	margin: 0px;
+	list-style-type: none;
+	font-size: 14px;
+	padding: 0px 0px 10px 0px;
+}
+
+.footer_ul_align li {
+	padding: 0px 0px 5px 0px;
+}
+
+.footer_ul_align li a {
+	color: #CCC;
+}
+
+.footer_ul_align li a:hover {
+	color: #fff;
+	text-decoration: none;
+}
+
+.fleft {
+	float: left;
+}
+
+.padding-right {
+	padding-right: 10px;
+}
+
+.bottom_border {
+	border-bottom: 1px solid #323f45;
+	padding-bottom: 20px;
+}
+
+.foote_bottom_ul_align {
+	list-style-type: none;
+	padding: 0px;
+	display: table;
+	margin-top: 10px;
+	margin-right: auto;
+	margin-bottom: 10px;
+	margin-left: auto;
+}
+
+.foote_bottom_ul_align li {
+	display: inline;
+}
+
+.foote_bottom_ul_align li a {
+	color: #999;
+	margin: 0 12px;
+}
+
+.social_footer_ul {
+	display: table;
+	margin: 15px auto 0 auto;
+	list-style-type: none;
+}
+
+.social_footer_ul li {
+	padding-left: 20px;
+	padding-top: 10px;
+	float: left;
+}
+
+.social_footer_ul li a {
+	color: #CCC;
+	border: 1px solid #CCC;
+	padding: 8px;
+	border-radius: 50%;
+}
+
+.social_footer_ul li i {
+	width: 20px;
+	height: 20px;
+	text-align: center;
+}
+
+.row.divider [class*='col-']:nth-child(3):after {
+	background: #e0e0e0;
+	width: 1px;
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	min-height: 70px;
+}
+
+.brand .carousel-indicators {
+	left: 0;
+	top: auto;
+	bottom: -50px;
+}
+
+.brand .carousel-indicators li {
+	background: #a3a3a3;
+	border-radius: 50%;
+	width: 8px;
+	height: 8px;
+}
+
+.brand .carousel-indicators .active {
+	background: #707070;
+}
+
+@media only screen and (max-width: 1200px) {
+	h2:after,
+	h2:before,
+	.row.divider [class*='col-']:nth-child(3):after {
+		display: none
+	}
+	.carousel-inner>.item>img {
+		margin: 0 auto;
+	}
+}
