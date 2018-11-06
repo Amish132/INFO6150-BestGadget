@@ -332,7 +332,11 @@ p {
 
 #wrapper {  min-width: 600px;
 	max-width: 1280px;
-	background-color: rgb(138, 178, 253);
+	background-color: rgb(255, 255, 255);
 	width: 80%;
 	margin: auto;
+	border-bottom-left-radius: 2em;
+	border-bottom-right-radius: 2em;
+	border-top-left-radius: 2em;
+	border-top-right-radius: 2em;
 }
