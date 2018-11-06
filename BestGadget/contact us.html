@@ -53,11 +53,16 @@
     <p>
         <h4>In case you have any thoughts, suggestions or complaints, contact us by:</h4>
         <ul>
-            <li>Email: support@buygadgets.com</li>
-            <li>In case of product enquiry, corporate queries please contact: sales@buygadgets.com</li>
-            <li>Corporate Office: 360, Huntington Avenue, Boston, MA- 02120</li>
+            <li>Email: <a href="mailto:support@buygadgets.com">support@buygadgets.com</a></li>
+            <li>In case of product enquiry, corporate queries please contact: <a href="mailto:sales@buygadgets.com">sales@buygadgets.com</a></li>
+            <li><address> Corporate Office: <br>360, Huntington Avenue,<br> Boston, MA- 02120</address></li>
         </ul>
     </p>
+    <div class="mapouter">
+        <div class="gmap_canvas"><iframe width="750" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=northeastern%20University&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://www.pureblack.de">werbeagentur</a></div>
+        <style>.mapouter{text-align:right;height:500px;width:750px;}.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:750px;}</style>
+    </div>
 </div>
 <footer class="footer">
     <div class="container bottom_border">
@@ -74,19 +79,19 @@
             <div class=" col-sm-4 col-md  col-6 col">
                 <h5 class="col_white_footermain pt2">HELP</h5>
                 <ul class="footer_ul_align">
-                    <li><a href="#">Payments</a></li>
-                    <li><a href="#">Shipping</a></li>
-                    <li><a href="#">Cancellation & Returns</a></li>
-                    <li><a href="#">FAQ</a></li>
+                    <li><a href="payments.html">Payments</a></li>
+                    <li><a href="shipping.html">Shipping</a></li>
+                    <li><a href="cancellation.html">Cancellation & Returns</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
                 </ul>
             </div>
             <div class=" col-sm-4 col-md  col-6 col">
                 <h5 class="col_white_footermain pt2">POLICY</h5>
                 <ul class="footer_ul_align">
-                    <li><a href="#">Return Policy</a></li>
-                    <li><a href="#">Terms Of Use</a></li>
-                    <li><a href="#">Security</a></li>
-                    <li><a href="#">Privacy</a></li>
+                    <li><a href="return.html">Return Policy</a></li>
+                    <li><a href="terms.html">Terms Of Use</a></li>
+                    <li><a href="security.html">Security</a></li>
+                    <li><a href="privacy.html">Privacy</a></li>
                 </ul>
             </div>
             <div class=" col-sm-4 col-md  col-12 col">
@@ -146,5 +151,8 @@
         $('[data-toggle="popover"]').popover()
     })
 </script>
+<script src='https://maps.googleapis.com/maps/api/js?v=3.exp'></script>
+
+<script type='text/javascript'>function init_map() { var myOptions = { zoom: 14, center: new google.maps.LatLng(42.34335940191768, -71.08951502275391), mapTypeId: google.maps.MapTypeId.ROADMAP }; map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions); marker = new google.maps.Marker({ map: map, position: new google.maps.LatLng(42.34335940191768, -71.08951502275391) }); infowindow = new google.maps.InfoWindow({ content: '<strong>BestGadget</strong><br>Northeastern University, Boston<br>' }); google.maps.event.addListener(marker, 'click', function () { infowindow.open(map, marker); }); infowindow.open(map, marker); } google.maps.event.addDomListener(window, 'load', init_map);</script>
 
 </html>

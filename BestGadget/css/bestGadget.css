@@ -5,7 +5,7 @@
 	text-align: center;
 }
 
-h2 {
+h2, h3 {
 	width: 100%;
 	margin: 0;
 	padding: 0;
@@ -19,18 +19,37 @@ h2:after {
 	content: " ";
 	text-shadow: none;
 	background-color: #999;
-	width: 430px;
+	width: 300px;
 }
 
-h2:before {
+/* h3:after{
+	display: inline-block;
+	margin: 0 0 8px 20px;
+	height: 1px;
+	content: " ";
+	text-shadow: none;
+	background-color: #999;
+	width: 150px;
+} */
+
+h2:before{
 	display: inline-block;
 	margin: 0 20px 8px 0;
 	height: 1px;
 	content: " ";
 	text-shadow: none;
 	background-color: #999;
-	width: 430px;
+	width: 300px;
 }
+/* h3:before{
+	display: inline-block;
+	margin: 0 20px 8px 0;
+	height: 1px;
+	content: " ";
+	text-shadow: none;
+	background-color: #999;
+	width: 150px;
+} */
 
 .col_white_footermain {
 	color: #FFF;
@@ -184,8 +203,14 @@ p {
 .cd-faq-trigger {
 	position: relative;
 	display: block;
-	margin: 1.6em 0 .4em;
 	line-height: 1.2;
+	padding: 10px;
+    border-width: 0 1px 1px 0;
+    border-style: solid;
+    border-color: rgb(0, 0, 0);
+    box-shadow: 0 1px 1px rgb(43, 43, 43);
+    margin-bottom: 5px;
+    background-color: #ff8a1c;
   }
   @media only screen and (min-width: 768px) {
 	.cd-faq-trigger {
@@ -242,7 +267,6 @@ p {
   
   .cd-faq-content p {
 	line-height: 1.4;
-	
   }
   @media only screen and (min-width: 768px) {
 	.cd-faq-content {
@@ -256,3 +280,59 @@ p {
 	  display: block;
 	}
   }
+
+  .scroll-div {
+	display:none;
+    padding: 10px;
+    border-width: 0 1px 1px 0;
+    border-style: solid;
+    border-color: #fff;
+    box-shadow: 0 1px 1px #ccc;
+    margin-bottom: 5px;
+    background-color: #f1f1f1;
+  }
+
+  .totop {
+    position: fixed;
+    bottom: 10px;
+    right: 20px;
+}
+
+.totop a {
+    display: none;
+}
+#loadMore {
+    padding: 10px;
+    text-align: center;
+    background-color: #33739E;
+    color: #fff;
+    border-width: 0 1px 1px 0;
+    border-style: solid;
+    border-color: #fff;
+    box-shadow: 0 1px 1px #ccc;
+    transition: all 600ms ease-in-out;
+    -webkit-transition: all 600ms ease-in-out;
+    -moz-transition: all 600ms ease-in-out;
+	-o-transition: all 600ms ease-in-out;
+	
+}
+#loadMore:hover {
+    background-color: rgb(253, 187, 124);
+    color: #33739E;
+}
+.scroll-a a, a:visited {
+    color: #33739E;
+    text-decoration: none;
+    display: block;
+    margin: 10px 0;
+}
+.scroll-a a:hover {
+    text-decoration: none;
+}
+
+#wrapper {  min-width: 600px;
+	max-width: 1280px;
+	background-color: rgb(138, 178, 253);
+	width: 80%;
+	margin: auto;
+}
