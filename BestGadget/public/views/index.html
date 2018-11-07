@@ -7,6 +7,7 @@
   <title>Buy Gadgets</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" href="css/bestGadget.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="js/buyGadget.js"></script>
   <link rel="shortcut icon" href="images/favicon.png">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
@@ -15,6 +16,7 @@
 </head>
 <header>
   <nav class="navbar navbar-expand-lg bg-dark navbar-sticky navbar-airy navbar-dark bg-hover-white bg-fixed-white navbar-hover-light navbar-fixed-light">
+
     <div class="container-fluid">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav-content" aria-controls="nav-content"
         aria-expanded="false" aria-label="Toggle navigation">
@@ -27,10 +29,64 @@
             <a class="nav-link" href="#">Home</a>
           </li>
           <li class="nav-item pl-5" style="font-size:20px">
-            <a class="nav-link" href="#">Products</a>
+            <a class="nav-link dropdown-toggle " href="#"id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Products</a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-md-4">
+                        <span class="text-uppercase text-white">product</span>
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#">Laptops</a>
+                              </li>
+                              <li class="nav-item">
+                                <a class="nav-link" href="#">Mobiles</a>
+                              </li>
+                              <li class="nav-item">
+                                <a class="nav-link" href="#">Tablets</a>
+                              </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <span class="text-uppercase text-white">Mobile Accessories</span>
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#">Mobile Cases</a>
+                              </li>
+                              <li class="nav-item">
+                                <a class="nav-link" href="#">Headphones & Headsets</a>
+                              </li>
+                              <li class="nav-item">
+                                <a class="nav-link" href="#">Power Banks</a>
+                              </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <span class="text-uppercase text-white">Computer Accessories</span>
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#">External Hard Disks</a>
+                              </li>
+                              <li class="nav-item">
+                                <a class="nav-link" href="#">Pendrives</a>
+                              </li>
+                              <li class="nav-item">
+                                <a class="nav-link" href="#">Keyboards</a>
+                              </li>
+                        </ul>
+                    </div>              
+                  </div>
+                  </div>
+              </div>
           </li>
           <li class="nav-item pl-5" style="font-size:20px">
-            <a class="nav-link" href="#">Brands</a>
+           <a class="nav-link dropdown-toggle  " href="#"id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Brands</a>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" style="text-align: center" href="#">Apple</a>
+                  <a class="dropdown-item" style="text-align: center" href="#">Lenovo</a>
+                  <a class="dropdown-item" style="text-align: center" href="#">Oneplus</a>
+                  <a class="dropdown-item" style="text-align: center" href="#">Canon</a>
+               </div>                      
           </li>
           <li class="nav-item pl-5" style="font-size:20px">
             <a class="nav-link" href="#">Services</a>
