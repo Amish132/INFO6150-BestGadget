@@ -139,4 +139,12 @@ module.exports = function (app) {
 		res.sendfile('./public/views/privacy.html');
 	});
 
+	app.get('/login', function (req, res) {
+		res.sendfile('./public/views/loginreg.html');
+	});
+
+	app.get('/signin', function (req, res) {
+		res.sendfile('./public/views/signin.html');
+	});
+
 };
