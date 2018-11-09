@@ -1,7 +1,9 @@
 // app/routes.js
 
 // grab the nerd model we just created
-var Sample = require('./models/sample');
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
+var User = require('./models/buygadgets');
 
 module.exports = function (app) {
 
@@ -10,77 +12,100 @@ module.exports = function (app) {
 	// authentication routes
 
 	// sample api route
-	app.get('/api/show', function (req, res) {
-
-
-		Sample.find(function (err, samples) {
-			// if there is an error retrieving, send the error.
-			// nothing after res.send(err) will execute
-			if (err)
-				res.send(err);
-			console.log('samples', samples);
-			res.json(samples);
-		});
+	app.post('/register', function (req, res) {
+		var email = req.body.email;
+		var username = req.body.username;
+		var password = req.body.password;
+		var confirmpassword = req.body.confirmpassword;
+	
+		// Validation
+		req.checkBody('email', 'Email is required').notEmpty();
+		req.checkBody('email', 'Email is not valid').isEmail();
+		req.checkBody('username', 'Username is required').notEmpty();
+		req.checkBody('password', 'Password is required').notEmpty();
+		req.checkBody('confirmpassword', 'Passwords do not match').equals(req.body.password);
+	
+		var errors = req.validationErrors();
+	
+		if (errors) {
+			res.render('register', {
+				errors: errors
+			});
+		}
+		else {
+			//checking for email and username are already taken
+			User.findOne({ username: { 
+				"$regex": "^" + username + "\\b", "$options": "i"
+		}}, function (err, user) {
+				User.findOne({ email: { 
+					"$regex": "^" + email + "\\b", "$options": "i"
+			}}, function (err, mail) {
+					if (user || mail) {
+						res.render('register', {
+							user: user,
+							mail: mail
+						});
+					}
+					else {
+						var newUser = new User({
+							email: email,
+							username: username,
+							password: password
+						});
+						User.createUser(newUser, function (err, user) {
+							if (err) throw err;
+							console.log(user);
+						});
+				 req.flash('success_msg', 'You are registered and can now login');
+						res.redirect('/');
+					}
+				});
+			});
+		}
 	});
 
-	app.post('/api/search', function (req, res) {
-		var rec = req.body.message;
-		console.log("inside search" + rec);
-		Sample.find({
-			message: rec
-		}, function (err, samples) {
-			// if there is an error retrieving, send the error.
-			// nothing after res.send(err) will execute
-			if (err)
-				res.send(err);
-			console.log('samples', samples);
-			res.json(samples);
+	passport.use(new LocalStrategy(
+		function (username, password, done) {
+			User.getUserByUsername(username, function (err, user) {
+				if (err) throw err;
+				console.log(user);
+				if (!user) {
+					return done(null, false, { message: 'Unknown User' });
+				}
+	
+				User.comparePassword(password, user.password, function (err, isMatch) {
+					if (err) throw err;
+					if (isMatch) {
+						return done(null, user);
+					} else {
+						return done(null, false, { message: 'Invalid password' });
+					}
+				});
+			});
+		}));
+	
+	passport.serializeUser(function (user, done) {
+		done(null, user.id);
+	});
+	
+	passport.deserializeUser(function (id, done) {
+		User.getUserById(id, function (err, user) {
+			done(err, user);
 		});
 	});
-
-
-	app.post('/api/insert', function (req, res) {
-		//console.log(req.body.message);
-		var rec = new Sample(req.body);
-		rec.save(function (err, n) {
-			if (err)
-				console.log('saving failed');
-			console.log('saved ' + n.message);
+	
+	app.post('/login',
+		passport.authenticate('local', { successRedirect: '/', failureRedirect: 'login', failureFlash: true }),
+		function (req, res) {
+			res.redirect('/');
 		});
-	});
-
-	app.post('/api/delete', function (req, res) {
-		console.log("inside api delte" + req.body.message);
-		var rec = req.body.message;
-		Sample.deleteOne({
-			message: rec
-		}, function (err) {
-			if (err)
-				console.log('deleting failed');
-			console.log('deleted');
-			res.json('deleted');
-		});
-	});
-
-	app.post('/api/update', function (req, res) {
-		console.log("inside api update" + req.body.message);
-		var rec = req.body.message;
-		var myquery = {
-			message: rec
-		};
-		console.log(req.body.updatedMessage);
-		var newUpdate = req.body.updatedMessage;
-		var newvalues = {
-			$set: {
-				message: newUpdate
-			}
-		};
-		Sample.updateOne(myquery, newvalues, function (err) {
-			if (err)
-				console.log('saving failed');
-			console.log("1 document updated");
-			res.json('updated');
-		});
+	
+	app.get('/logout', function (req, res) {
+		req.logout();
+	
+		req.flash('success_msg', 'You are logged out');
+	
+		res.redirect('/');
 	});
 
 
@@ -90,7 +115,7 @@ module.exports = function (app) {
 	// frontend routes =========================================================
 	// route to handle all angular requests
 	app.get('/', function (req, res) {
-		res.sendfile('./public/views/index.html'); // load our public/index.html file
+		res.render('home');
 	});
 
 	app.get('/aboutus', function (req, res) {
@@ -139,12 +164,12 @@ module.exports = function (app) {
 		res.sendfile('./public/views/privacy.html');
 	});
 
-	app.get('/login', function (req, res) {
-		res.sendfile('./public/views/loginreg.html');
+	app.get('/register', function (req, res) {
+		res.render('register');
 	});
 
-	app.get('/signin', function (req, res) {
-		res.sendfile('./public/views/signin.html');
+	app.get('/login', function (req, res) {
+		res.render('login');
 	});
 
 };
