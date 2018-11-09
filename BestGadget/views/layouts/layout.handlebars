@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Latest compiled and minified Bootstrap CSS -->
+  <meta charset="utf-8">
+  <title>Buy Gadgets</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="css/bestGadget.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="js/buyGadget.js"></script>
+  <link rel="shortcut icon" href="images/favicon.png">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<header>
+  <nav class="navbar navbar-expand-lg bg-dark navbar-sticky navbar-airy navbar-dark bg-hover-white bg-fixed-white navbar-hover-light navbar-fixed-light">
+
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav-content" aria-controls="nav-content"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand" href="/"> <img class="img-fluid" src="images/logo.png" alt="logo"></a>
+      <div class="collapse navbar-collapse" id="nav-content">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item pl-5 active" style="font-size:20px">
+            <a class="nav-link" href="#">Home</a>
+          </li>
+          <li class="nav-item pl-5" style="font-size:20px">
+            <a class="nav-link dropdown-toggle " href="#"id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Products</a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-md-4">
+                        <span class="text-uppercase text-white">product</span>
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#">Laptops</a>
+                              </li>
+                              <li class="nav-item">
+                                <a class="nav-link" href="#">Mobiles</a>
+                              </li>
+                              <li class="nav-item">
+                                <a class="nav-link" href="#">Tablets</a>
+                              </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <span class="text-uppercase text-white">Mobile Accessories</span>
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#">Mobile Cases</a>
+                              </li>
+                              <li class="nav-item">
+                                <a class="nav-link" href="#">Headphones & Headsets</a>
+                              </li>
+                              <li class="nav-item">
+                                <a class="nav-link" href="#">Power Banks</a>
+                              </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <span class="text-uppercase text-white">Computer Accessories</span>
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#">External Hard Disks</a>
+                              </li>
+                              <li class="nav-item">
+                                <a class="nav-link" href="#">Pendrives</a>
+                              </li>
+                              <li class="nav-item">
+                                <a class="nav-link" href="#">Keyboards</a>
+                              </li>
+                        </ul>
+                    </div>              
+                  </div>
+                  </div>
+              </div>
+          </li>
+          <li class="nav-item pl-5" style="font-size:20px">
+           <a class="nav-link dropdown-toggle  " href="#"id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Brands</a>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" style="text-align: center" href="#">Apple</a>
+                  <a class="dropdown-item" style="text-align: center" href="#">Lenovo</a>
+                  <a class="dropdown-item" style="text-align: center" href="#">Oneplus</a>
+                  <a class="dropdown-item" style="text-align: center" href="#">Canon</a>
+               </div>                      
+          </li>
+          <li class="nav-item pl-5" style="font-size:20px">
+            <a class="nav-link" href="#">Services</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item dropdown pl-5">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-user-circle-o" style="font-size:20px"></i></a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                     {{#if user}}
+                      <p class="text-uppercase text-white loggoedInUser"> Welcome {{#each user}}  {{this.username}}   {{/each}}  </p>
+                     <button class="dropdown-item text-uppercase text-white btn btn-secondary"  type="button" onclick="location.href='/logout'">Logout</button>
+                      {{else}}
+                    <button class="dropdown-item text-uppercase text-white btn btn-secondary"  type="button" onclick="location.href='/login'">Login</button>
+                    <button class="dropdown-item text-uppercase text-white btn btn-secondary"  type="button" onclick="location.href='/register'">Register</button>
+                    {{/if}}
+                  </div>
+          </li>
+          <li class="nav-item pl-5">
+            <a class="nav-link" href="#"> <i class="fa fa-shopping-cart" style="font-size:20px"></i></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header> 
+
+
+ {{{body}}}
+
+
+
+
+ <body>
+  <footer class="footer">
+    <div class="container bottom_border">
+      <div class="row divider">
+        <div class=" col-sm-4 col-md  col-6 col">
+          <h5 class="col_white_footermain pt2">ABOUT</h5>
+          <ul class="footer_ul_align">
+            <li><a href="/contact">Contact Us</a></li>
+            <li><a href="/aboutus">About Us</a></li>
+            <li><a href="/careers">Careers</a></li>
+            <li><a href="#">Press</a></li>
+          </ul>
+        </div>
+        <div class=" col-sm-4 col-md  col-6 col">
+          <h5 class="col_white_footermain pt2">HELP</h5>
+          <ul class="footer_ul_align">
+            <li><a href="/payments">Payments</a></li>
+            <li><a href="/shipping">Shipping</a></li>
+            <li><a href="/cancellation">Cancellation & Returns</a></li>
+            <li><a href="/faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div class=" col-sm-4 col-md  col-6 col">
+          <h5 class="col_white_footermain pt2">POLICY</h5>
+          <ul class="footer_ul_align">
+            <li><a href="/return">Return Policy</a></li>
+            <li><a href="/terms">Terms Of Use</a></li>
+            <li><a href="/security">Security</a></li>
+            <li><a href="/privacy">Privacy</a></li>
+          </ul>
+        </div>
+        <div class=" col-sm-4 col-md  col-12 col">
+          <h5 class="col_white_footermain pt2">Mail Us</h5>
+          <ul class="footer_ul_align">
+            <li>
+              <a href="mailto:v.gouthamreddy999@gmail.com"><i class="fa fa fa-envelope fleft padding-right"></i> </a>
+              <p>
+                800 Boylston St
+                02199-8001 Boston,
+                Massachusetts, MA-02115
+                Telephone:<a href="tel:(857)-869-8670"> (857)-869-8670</a>
+              </p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <ul class="foote_bottom_ul_align">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="aboutus.html">About</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="contact us.html">Contact</a></li>
+      </ul>
+      <p class="text-center">Copyright @2018 Buy G@dgets </p>
+      <ul class="social_footer_ul">
+        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+      </ul>
+    </div>
+</footer>
+</body>
+<!-- jQuery library -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+  crossorigin="anonymous"></script>
+<!-- Popper -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+  crossorigin="anonymous"></script>
+<!-- Latest compiled and minified Bootstrap JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+  crossorigin="anonymous"></script>
+<!-- Initialize Bootstrap functionality -->
+<script>
+  // Initialize tooltip component
+  $(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+  })
+
+  // Initialize popover component
+  $(function () {
+    $('[data-toggle="popover"]').popover()
+  })
+</script>
+
+</html>

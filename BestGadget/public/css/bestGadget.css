@@ -515,3 +515,16 @@ p {
 		background-color: #cb2027;
 		}
 	
+		.ml-auto .dropdown-menu {
+			left: auto !important;
+			right: 0px;
+			width: 200px;
+	}
+
+	.ml-auto .dropdown-item:hover {
+		background-color: black;
+}
+ .loggoedInUser{
+	 padding-left: 20px;
+ }
+	
