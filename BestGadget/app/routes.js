@@ -57,7 +57,7 @@ module.exports = function (app) {
 							console.log(user);
 						});
 				 req.flash('success_msg', 'You are registered and can now login');
-						res.redirect('/');
+						res.redirect('login');
 					}
 				});
 			});
@@ -119,49 +119,50 @@ module.exports = function (app) {
 	});
 
 	app.get('/aboutus', function (req, res) {
-		res.sendfile('./public/views/aboutus.html');
+		res.render('aboutus');
+		
 	});
 
 	app.get('/contact', function (req, res) {
-		res.sendfile('./public/views/contactus.html');
+		res.render('contactus');
 	});
 
 	app.get('/careers', function (req, res) {
-		res.sendfile('./public/views/careers.html');
+		res.render('careers');
 	});
 
 	app.get('/payments', function (req, res) {
-		res.sendfile('./public/views/payments.html');
+		res.render('payments');
 	});
 
 	app.get('/shipping', function (req, res) {
-		res.sendfile('./public/views/shipping.html');
+		res.render('shipping');
 	});
 
 	app.get('/cancellation', function (req, res) {
-		res.sendfile('./public/views/cancellation.html');
+		res.render('cancellation');
 	});
 
 	app.get('/faq', function (req, res) {
-		res.sendfile('./public/views/faq.html');
+		res.render('faq');		
 	});
 
 	app.get('/return', function (req, res) {
-		res.sendfile('./public/views/return.html');
+		res.render('return');
 	});
 
 	app.get('/terms', function (req, res) {
-		res.sendfile('./public/views/terms.html');
+		res.render('terms');
 	});
 
 
 	app.get('/security', function (req, res) {
-		res.sendfile('./public/views/security.html');
+		res.render('security');
 	});
 
 
 	app.get('/privacy', function (req, res) {
-		res.sendfile('./public/views/privacy.html');
+		res.render('privacy');
 	});
 
 	app.get('/register', function (req, res) {
