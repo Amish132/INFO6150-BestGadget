@@ -173,4 +173,8 @@ module.exports = function (app) {
 		res.render('login');
 	});
 
+	app.get('/productDetails', function (req, res) {
+		res.render('productDetails');
+	});
+
 };
