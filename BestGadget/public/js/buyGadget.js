@@ -2,12 +2,12 @@ $(document).ready(function() {
     // executes when HTML-Document is loaded and DOM is ready
    // breakpoint and up  
          // when you hover a toggle show its dropdown menu
-		 faqTrigger = $('.cd-faq-trigger');
-
-		faqTrigger.on('click', function (event) {
-			event.preventDefault();
-			$(this).next('.cd-faq-content').slideToggle(200).end().parent('li').toggleClass('content-visible');
-			//$(this).next('.cd-faq-content').slideToggle(200).toggleClass('content-visible');
+         faqTrigger = $('.cd-faq-trigger');
+		 faqTrigger.on('click', function (event) {
+            event.preventDefault();
+			//$(this).next('.cd-faq-content').slideToggle(200).end().parent('li').toggleClass('content-visible');
+            $(this).next('.cd-faq-content').slideToggle(200).toggleClass('content-visible');
+        
 		});
          $(".navbar .dropdown-toggle").hover(function () {
             
