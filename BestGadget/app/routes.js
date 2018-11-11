@@ -172,9 +172,11 @@ module.exports = function (app) {
 	app.get('/login', function (req, res) {
 		res.render('login');
 	});
-
 	app.get('/productDetails', function (req, res) {
 		res.render('productDetails');
+	});	
+	app.get('/checkout', function (req, res) {
+		res.render('checkout');
 	});
 
 };
