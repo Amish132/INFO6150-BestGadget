@@ -1,4 +1,4 @@
-// app/models/sample.js
+// app/models/buygadgets.js
 
 var mongoose = require('mongoose');
 var bcrypt = require('bcryptjs');
