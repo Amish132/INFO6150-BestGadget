@@ -708,6 +708,7 @@ p.card-text{
 	overflow: hidden;
 	text-overflow:ellipsis;
 	text-align: center;
+	margin: auto;
 }
 
 p.card-text:hover  {
