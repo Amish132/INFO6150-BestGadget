@@ -16,7 +16,36 @@ var UserSchema = mongoose.Schema({
 	}
 });
 
+var ProductSchema = mongoose.Schema({ 	 
+	imagepath: {
+		type: String,
+		required:true
+	},
+	title: {
+		type: String,
+		required:true
+	},
+	description: {
+		type: String,
+		required:true
+	},
+	price: {
+		type: Number,
+		required:true
+	},
+	productRating: {
+		type: Number
+	}
+});	
+
+
+
+
+
 var User = module.exports = mongoose.model('User', UserSchema);
+var Product = module.exports = mongoose.model('Product', ProductSchema);
+
+
 
 module.exports.createUser = function(newUser, callback){
 	bcrypt.genSalt(10, function(err, salt) {

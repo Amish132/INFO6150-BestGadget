@@ -73,6 +73,7 @@ $(window).scroll(function () {
       $('.totop a').fadeOut();
   }
 });
+
 		
    // document ready  
    });
