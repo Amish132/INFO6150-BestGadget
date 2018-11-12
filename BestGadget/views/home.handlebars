@@ -37,101 +37,41 @@
   </div>
 </div>
 <div class="container-fluid bg-light" style="padding-top:70px;padding-bottom:70px">
-  <div class="row">
-    <div class="section-heading">
+  <div class="section-heading">
       <h2 class="section-title">Trending Products</h2>
     </div>
-    <div class="col-lg-4 col-md-6 p-3">
+  {{# each products }}
+  <div class="row">
+    {{# each this }}
+   <div class="col-lg-4 col-md-6 p-3">
       <div class="card text-center">
         <div class="card-content">
-          <img class="card-img-top img-fluid" src="images/trending/trending1.jpg" alt="Card image cap">
+          <img class="card-img-top img-fluid" src="{{ this.imagepath}}" alt="{{ this.title }}">
           <div class="card-body">
-            <h4 class="card-title">Boss Ear Phones</h4>
-            <p class="card-text">Classic Ear phones</p>
+            <h4 class="card-title">{{ this.title }}</h4>
+             <input type="hidden" id="custId" name="custId" value="{{this.productRating}}">
+            	<div class="rating">
+							<div class="stars">
+								<span class="fa fa-star checked"></span>
+								<span class="fa fa-star checked"></span>
+								<span class="fa fa-star checked"></span>
+								<span class="fa fa-star"></span>
+								<span class="fa fa-star"></span>
+							</div>
+							<span class="review-no">41 reviews</span>
+						</div>
+            <p class="card-text">{{ this.description }}</p>
             <div class="btn-group" role="group" aria-label="Basic example">
-              <span class="btn btn-outline-blue-grey">$32</span>
+              <span class="btn btn-outline-blue-grey">$ {{ this.price }}</span>
               <button type="button" class="btn btn-outline-blue-grey">Buy now <i class="icon-cart3"></i></button>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="col-lg-4 col-md-6 p-3">
-      <div class="card text-center">
-        <div class="card-content">
-          <img class="card-img-top img-fluid" src="images/trending/trending2.jpeg" alt="Card image cap">
-          <div class="card-body">
-            <h4 class="card-title">Dell Inspiron i7</h4>
-            <p class="card-text">8GB/128GB SSD</p>
-            <div class="btn-group" role="group" aria-label="Basic example">
-              <span class="btn btn-outline-blue-grey">$749</span>
-              <button type="button" class="btn btn-outline-blue-grey">Buy Now <i class="icon-cart3"></i></button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-4 col-md-6 p-3">
-      <div class="card text-center">
-        <div class="card-content">
-          <img class="card-img-top img-fluid" src="images/trending/trending3.jpg" alt="Card image cap">
-          <div class="card-body">
-            <h4 class="card-title">Fossil Smart Q-3</h4>
-            <p class="card-text">Be fit and smart</p>
-            <div class="btn-group" role="group" aria-label="Basic example">
-              <span class="btn btn-outline-blue-grey">$59</span>
-              <button type="button" class="btn btn-outline-blue-grey">Buy Now <i class="icon-cart3"></i></button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-4 col-md-6 p-3">
-      <div class="card text-center">
-        <div class="card-content">
-          <img class="card-img-top img-fluid" src="images/trending/trending4.jpg" alt="Card image cap">
-          <div class="card-body">
-            <h4 class="card-title">Microsoft Surface</h4>
-            <p class="card-text">8-GB/256 GB SSD</p>
-            <div class="btn-group" role="group" aria-label="Basic example">
-              <span class="btn btn-outline-blue-grey">$569</span>
-              <button type="button" class="btn btn-outline-blue-grey">Buy Now <i class="icon-cart3"></i></button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-4 col-md-6 p-3">
-      <div class="card text-center">
-        <div class="card-content">
-          <img class="card-img-top img-fluid" src="images/trending/trending5.jpg" alt="Card image cap">
-          <div class="card-body">
-            <h4 class="card-title">Amazon Alexa</h4>
-            <p class="card-text">AI Smart Shopper</p>
-            <div class="btn-group" role="group" aria-label="Basic example">
-              <span class="btn btn-outline-blue-grey">$350</span>
-              <button type="button" class="btn btn-outline-blue-grey">Buy Now <i class="icon-cart3"></i></button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-4 col-md-6 p-3">
-      <div class="card text-center">
-        <div class="card-content">
-          <img class="card-img-top img-fluid" src="images/trending/trending6.jpg" alt="Card image cap">
-          <div class="card-body">
-            <h4 class="card-title">Apple i-watch</h4>
-            <p class="card-text">i watch: faster</p>
-            <div class="btn-group" role="group" aria-label="Basic example">
-              <span class="btn btn-outline-blue-grey">$259</span>
-              <button type="button" class="btn btn-outline-blue-grey">Buy Now <i class="icon-cart3"></i></button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+     {{/each}}  
   </div>
+  {{/each}}
 </div>
 <div class="container">
   <div class="row brand">

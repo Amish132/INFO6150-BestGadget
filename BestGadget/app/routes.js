@@ -4,6 +4,7 @@
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var User = require('./models/buygadgets');
+var Product = require('./models/proudct');
 
 module.exports = function (app) {
 
@@ -107,6 +108,8 @@ module.exports = function (app) {
 	
 		res.redirect('/');
 	});
+   
+
 
 
 	// route to handle creating goes here (app.post)
@@ -115,7 +118,15 @@ module.exports = function (app) {
 	// frontend routes =========================================================
 	// route to handle all angular requests
 	app.get('/', function (req, res) {
-		res.render('home');
+		Product.find(function(err, productLength){
+			var popularProducts = [];
+			var rowSize = 3;
+			for(var i= 0; i <productLength.length; i+=rowSize){
+				popularProducts.push(productLength.slice(i, i+rowSize));
+			}
+			res.render('home',{products: popularProducts});
+		});
+	     
 	});
 
 	app.get('/aboutus', function (req, res) {
