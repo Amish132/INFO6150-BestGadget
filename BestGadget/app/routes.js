@@ -126,7 +126,7 @@ module.exports = function (app) {
 			}
 			res.render('home',{products: popularProducts, helpers: {
 				times: function (n, block) { var accum = '';
-				for(var i = 0; i < n; ++i)
+				for(var i = 0; i < n; i++)
 					accum += block.fn(i);
 				return accum;},
 				ntimes: function (n, block) { var accum = '';
