@@ -702,4 +702,27 @@ img {
 	-webkit-transform: scale(1.2); /* Safari 3-8 */
 	transform: scale(1.2); 
 }
-	
+p.card-text{
+	white-space: nowrap; 
+	width: 200px; 
+	overflow: hidden;
+	text-overflow:ellipsis;
+	text-align: center;
+}
+
+p.card-text:hover  {
+	word-break:break-all;
+	overflow-wrap: break-word;
+	right:0;
+  bottom:0;
+ 
+
+}
+.thumbnail
+{
+	min-height: 80%;
+}
+.card
+{
+	max-height: 150%;
+}
