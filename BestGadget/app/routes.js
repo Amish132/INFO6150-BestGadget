@@ -124,7 +124,22 @@ module.exports = function (app) {
 			for(var i= 0; i <productLength.length; i+=rowSize){
 				popularProducts.push(productLength.slice(i, i+rowSize));
 			}
-			res.render('home',{products: popularProducts});
+			res.render('home',{products: popularProducts, helpers: {
+				times: function (n, block) { var accum = '';
+				for(var i = 0; i < n; ++i)
+					accum += block.fn(i);
+				return accum;},
+				ntimes: function (n, block) { var accum = '';
+				for(var i = 5; i > n; i--)
+					accum += block.fn(i);
+				return accum;}
+
+			}
+
+			
+			
+			
+			});
 		});
 	     
 	});
