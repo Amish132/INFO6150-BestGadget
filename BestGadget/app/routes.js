@@ -148,6 +148,22 @@ module.exports = function (app) {
 	     
 	});
 
+	function isLoggedIn(req, res, next){
+		if(req.isAuthenticated()){
+		   return next();	 
+		}
+		res.redirect('/login');
+
+	}
+
+	function isLoggedOut(req, res, next){
+		if(!req.isAuthenticated()){
+		   return next();	 
+		}
+		res.redirect('/');
+
+	}
+
 	app.get('/aboutus', function (req, res) {
 		res.render('aboutus');
 		
@@ -195,17 +211,17 @@ module.exports = function (app) {
 		res.render('privacy');
 	});
 
-	app.get('/register', function (req, res) {
+	app.get('/register', isLoggedOut,function (req, res) {
 		res.render('register');
 	});
 
-	app.get('/login', function (req, res) {
+	app.get('/login', isLoggedOut,function (req, res) {
 		res.render('login',{csrfToken: req.csrfToken()});
 	});
 	app.get('/productDetails', function (req, res) {
 		res.render('productDetails');
 	});	
-	app.get('/checkout', function (req, res) {
+	app.get('/checkout', isLoggedIn,function (req, res) {
 		res.render('checkout');
 	});
 	app.get('/:pid/productDetails', function (req, res) {
