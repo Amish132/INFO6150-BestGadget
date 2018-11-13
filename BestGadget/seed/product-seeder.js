@@ -22,7 +22,7 @@ var products = [
     title: "Dell Inspiron i7",
     description: "8GB/128GB SSD",
     price: 749,
-    productRating: 4.5
+    productRating: 4
   }),
   
   
@@ -40,7 +40,7 @@ var products = [
     title: "Microsoft Surface",
     description: "8-GB/256 GB SSD",
     price: 569,
-    productRating: 3.5
+    productRating: 3
   }),
   
   
