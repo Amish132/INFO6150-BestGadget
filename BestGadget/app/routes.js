@@ -244,5 +244,19 @@ module.exports = function (app) {
 
 		})
 	});	
+	app.get('/categoryLanding', function (req, res) {
 
-};
+		Product.find(function(err, productLength){
+			var popularProducts = [];
+			var rowSize = 3;
+			for(var i= 0; i <productLength.length; i+=rowSize){
+				popularProducts.push(productLength.slice(i, i+rowSize));
+			}
+			res.render('categoryLanding',{products: popularProducts})
+
+			
+		});
+	     
+	});
+
+}
