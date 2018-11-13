@@ -51,10 +51,6 @@ app.use(session({
     resave: false
 }));
 
-// Passport init
-app.use(passport.initialize());
-app.use(passport.session());
-
 // Express Validator
 app.use(expressValidator({
   errorFormatter: function(param, msg, value) {
@@ -75,6 +71,10 @@ app.use(expressValidator({
 
 // Connect Flash
 app.use(flash());
+
+// Passport init
+app.use(passport.initialize());
+app.use(passport.session());
 
 // Global Vars
 app.use(function (req, res, next) {
