@@ -204,5 +204,25 @@ module.exports = function (app) {
 	app.get('/checkout', function (req, res) {
 		res.render('checkout');
 	});
+	app.get('/:pid/productDetails', function (req, res) {
+		var id = req.params.pid;
+		Product.findById(id,function(err,productLength){
+			console.log(productLength);
+			res.render('productDetails',{products: productLength,helpers: {
+				times: function (n, block) { var accum = '';
+				for(var i = 0; i < n; i++)
+					accum += block.fn(i);
+				return accum;},
+				ntimes: function (n, block) { var accum = '';
+				for(var i = 5; i > n; i--)
+					accum += block.fn(i);
+				return accum;}
+
+			}
+
+			})
+
+		})
+	});	
 
 };
