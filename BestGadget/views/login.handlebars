@@ -29,6 +29,7 @@
                     <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="password" >
                     <label for="inputPassword">Password</label>
                   </div>
+                  <input type="hidden" name="_csrf" value="{{ csrfToken }}">
                   <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Sign In</button>
                   <a class="d-block text-center mt-2 small" href="/register" id="swagath">Register</a>
                   <hr class="my-4">

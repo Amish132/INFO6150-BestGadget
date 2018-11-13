@@ -5,6 +5,9 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var User = require('./models/buygadgets');
 var Product = require('./models/proudct');
+var csrf = require('csurf');
+var csrfProtection = csrf();
+
 
 module.exports = function (app) {
 
@@ -13,6 +16,7 @@ module.exports = function (app) {
 	// authentication routes
 
 	// sample api route
+	app.use(csrfProtection); 
 	app.post('/register', function (req, res) {
 		var email = req.body.email;
 		var username = req.body.username;
@@ -196,7 +200,7 @@ module.exports = function (app) {
 	});
 
 	app.get('/login', function (req, res) {
-		res.render('login');
+		res.render('login',{csrfToken: req.csrfToken()});
 	});
 	app.get('/productDetails', function (req, res) {
 		res.render('productDetails');
