@@ -204,33 +204,38 @@ footer p {
 	border: none;
 	background-color: rgb(52, 58, 64)!important;
 }
+
+
 /* category landing page css*/
-.btn
-{
+
+.btncl {
 	float: right;
 }
 
-.product-item {
+.picl {
 	padding: 0px;
-	background:#00C0A1;
+	background: #00C0A1;
 	border-radius: 15px;
 	margin-top: 20px;
 	position: relative;
 	width: 300px;
 	height: 290px;
 }
-.product-item:hover {
+
+.picl:hover {
 	box-shadow: 8px 8px rgba(234, 234, 234, 0.9);
 }
-.product-item:after {
+
+.picl:after {
 	content: ".";
 	display: block;
 	height: 0;
 	clear: both;
 	visibility: hidden;
 	font-size: 0;
-	line-height:0;
+	line-height: 0;
 }
+
 .sticker {
 	position: absolute;
 	top: 0;
@@ -238,13 +243,16 @@ footer p {
 	width: 63px;
 	height: 63px;
 }
+
 .pi-img-wrapper {
 	position: relative;
 }
 
+
 /* grey area when mouse hover over photo */
-.pi-img-wrapper div { 
-	background: rgba(0,0,0,0.3);
+
+.wrcl div {
+	background: rgba(0, 0, 0, 0.3);
 	position: absolute;
 	left: 0;
 	top: 0;
@@ -253,22 +261,20 @@ footer p {
 	height: 203px;
 	text-align: center;
 }
-.product-item:hover>.pi-img-wrapper>div {
+
+.picl:hover>.pi-img-wrapper>div {
 	display: block;
 }
 
-
-.img-top-round {
+.imgcl {
 	border: 0px solid;
 	padding: 0px;
 	background: #dddddd;
 	border-top-right-radius: 1em;
-border-top-left-radius: 1em;
-
+	border-top-left-radius: 1em;
 }
 
-
-.pi-img-wrapper div .btn {
+.wrcl div .btn {
 	padding: 20px 10px;
 	color: #fff;
 	border: 1px #ffffff solid;
@@ -277,38 +283,47 @@ border-top-left-radius: 1em;
 	text-transform: uppercase;
 	position: relative;
 	top: 30%;
-	line-height: 0.5; /* height of hover buttons */
+	line-height: 0.5;
+	/* height of hover buttons */
 	font-size: 12px;
 }
 
+
 /* All abt Add To Cart Button */
-.product-item .btn {
-	color: #000000; /* Add to cart font color */
-	margin: -4px -4px 0px 40px; /* position of button within frame */
+
+.picl .btncl {
+	color: #000000;
+	/* Add to cart font color */
+	margin: -4px -4px 0px 40px;
+	/* position of button within frame */
 	background: #fee408;
-	
 }
 
-.product-item .btn:hover {
-	color: #FFFFFF; /* Add to cart font color */
+.picl .btncl:hover {
+	color: #FFFFFF;
+	/* Add to cart font color */
 	background: #e84d1c;
 }
 
+
 /* Product Name Fonts */
-.product-item h3 {
+
+.picl h3 {
 	font-size: 14px;
 	font-weight: 300;
 	padding-bottom: 4px;
 	text-transform: uppercase;
 }
 
-.product-item h3 a {
+.picl h3 a {
 	padding: 10px;
-	color: #FFFFFF; 
+	color: #FFFFFF;
 }
-.product-item h3 a:hover {
+
+.picl h3 a:hover {
 	color: #fee408;
 }
+
 .pi-price {
 	padding: 10px;
 	color: #ffffff;
@@ -316,19 +331,24 @@ border-top-left-radius: 1em;
 	float: left;
 	padding-top: 1px;
 }
-.product-item .add2cart {
+
+.picl .add2cart {
 	float: right;
-	color: #000000; /* Add to cart font color */
+	color: #000000;
+	/* Add to cart font color */
 	border: 1px #ededed solid;
 	padding: 3px 6px;
 	text-transform: uppercase;
 }
-			.product-item .add2cart:hover {
-					color: #fff;
-					background: #e84d1c;
-					border-color: #e84d1c;
-			}
-/* category landing page css*/
+
+.picl.add2cart:hover {
+	color: #fff;
+	background: #e84d1c;
+	border-color: #e84d1c;
+}
+
+
+/* category landing page css*--end/
 
 /* breakpoint and up - mega dropdown styles */
 
@@ -508,15 +528,12 @@ p {
 
 .scroll-a a,
 a:visited {
-	color:white;
+	color: #33739E;
 	text-decoration: none;
 	display: block;
 	margin: 10px 0;
 }
-.btn:not(:disabled):not(.disabled) {
-	cursor: pointer;
-	color: black;
-}
+
 .scroll-a a:hover {
 	text-decoration: none;
 }
@@ -665,6 +682,11 @@ a:visited {
 .ml-auto .dropdown-item:hover {
 	background-color: black;
 }
+
+.loggoedInUser {
+	padding-left: 20px;
+}
+
 
 /*product details CSS */
 
