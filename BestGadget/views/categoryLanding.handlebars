@@ -1,0 +1,21 @@
+<div class="container">
+     {{# each products }}
+    <div class="row">
+        {{# each this }}
+        <div class="col-lg-4 col-md-6 p-3">
+            <div class="product-item">
+              <div class="pi-img-wrapper">
+                <img src="{{ this.imagepath}}" class="img-responsive img-top-round" alt="{{ this.title }}">
+              </div>
+              <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
+              <div class="pi-price">${{ this.price }}</div>
+            <a href="#" class="btn cart">Add to cart</a>
+              <div class="sticker sticker-new"></div>
+            </div>
+        </div>
+          <div class="row visible-xs"><br></div>
+          {{/each  }}
+    </div>
+    <br>
+        {{/each}}
+</div>

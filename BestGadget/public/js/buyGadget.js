@@ -11,15 +11,16 @@ $(document).ready(function () {
 	});
 	$(".navbar .dropdown-toggle").hover(function () {
 
-		$(this).parent().toggleClass("show");
-		$(this).parent().find(".dropdown-menu").toggleClass("show");
+		$(this).parent().addClass("show");
+		$(this).parent().find(".dropdown-menu").addClass("show");
 	});
 
 	// hide the menu when the mouse leaves the dropdown
 	$(".navbar .dropdown-menu").mouseleave(function () {
 		$(this).removeClass("show");
-	});
-
+    });
+    
+  
 	function init_map() {
 		var myOptions = {
 			zoom: 14,
