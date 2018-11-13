@@ -16,7 +16,63 @@ h3 {
 .brands {
 	text-align: center;
 }
+/* breadcrumb */
+/** The Magic **/
+.btn-breadcrumb .btn:not(:last-child):after {
+  content: " ";
+  display: block;
+  width: 0;
+  height: 0;
+  border-top: 17px solid transparent;
+  border-bottom: 17px solid transparent;
+  border-left: 10px solid white;
+  position: absolute;
+  top: 50%;
+  margin-top: -17px;
+  left: 100%;
+  z-index: 3;
+}
+.btn-breadcrumb .btn:not(:last-child):before {
+  content: " ";
+  display: block;
+  width: 0;
+  height: 0;
+  border-top: 17px solid transparent;
+  border-bottom: 17px solid transparent;
+  border-left: 10px solid rgb(173, 173, 173);
+  position: absolute;
+  top: 50%;
+  margin-top: -17px;
+  margin-left: 1px;
+  left: 100%;
+  z-index: 3;
+}
 
+/** The Spacing **/
+.btn-breadcrumb .btn {
+  padding:6px 12px 6px 24px;
+}
+.btn-breadcrumb .btn:first-child {
+  padding:6px 6px 6px 10px;
+}
+.btn-breadcrumb .btn:last-child {
+  padding:6px 18px 6px 24px;
+}
+
+/** Default button **/
+.btn-breadcrumb .btn.btn-default:not(:last-child):after {
+  border-left: 10px solid #fff;
+}
+.btn-breadcrumb .btn.btn-default:not(:last-child):before {
+  border-left: 10px solid #ccc;
+}
+.btn-breadcrumb .btn.btn-default:hover:not(:last-child):after {
+  border-left: 10px solid #ebebeb;
+}
+.btn-breadcrumb .btn.btn-default:hover:not(:last-child):before {
+  border-left: 10px solid #adadad;
+}
+/*bread crumb ending*/
 h2:after {
 	display: inline-block;
 	margin: 0 0 8px 20px;
@@ -207,144 +263,55 @@ footer p {
 
 
 /* category landing page css*/
-
-.btncl {
-	float: right;
+/*
+** Style Simple Ecommerce Theme for Bootstrap 4
+** Created by T-PHP https://t-php.fr/43-theme-ecommerce-bootstrap-4.html
+*/
+.bloc_left_price {
+	color: #c01508;
+	text-align: center;
+	font-weight: bold;
+	font-size: 150%;
 }
-
-.picl {
-	padding: 0px;
-	background: #00C0A1;
-	border-radius: 15px;
-	margin-top: 20px;
-	position: relative;
-	width: 300px;
-	height: 290px;
+.category_block li:hover {
+	background-color: #007bff;
 }
-
-.picl:hover {
-	box-shadow: 8px 8px rgba(234, 234, 234, 0.9);
+.category_block li:hover a {
+	color: #ffffff;
 }
-
-.picl:after {
-	content: ".";
-	display: block;
-	height: 0;
-	clear: both;
-	visibility: hidden;
-	font-size: 0;
-	line-height: 0;
+.category_block li a {
+	color: #343a40;
 }
-
-.sticker {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 63px;
-	height: 63px;
+.add_to_cart_block .price {
+	color: #c01508;
+	text-align: center;
+	font-weight: bold;
+	font-size: 200%;
+	margin-bottom: 0;
 }
-
-.pi-img-wrapper {
-	position: relative;
+.add_to_cart_block .price_discounted {
+	color: #343a40;
+	text-align: center;
+	text-decoration: line-through;
+	font-size: 140%;
 }
-
-
-/* grey area when mouse hover over photo */
-
-.wrcl div {
-	background: rgba(0, 0, 0, 0.3);
-	position: absolute;
-	left: 0;
-	top: 0;
-	display: none;
-	width: 220px;
-	height: 203px;
+.product_rassurance {
+	padding: 10px;
+	margin-top: 15px;
+	background: #ffffff;
+	border: 1px solid #6c757d;
+	color: #6c757d;
+}
+.product_rassurance .list-inline {
+	margin-bottom: 0;
+	text-transform: uppercase;
 	text-align: center;
 }
-
-.picl:hover>.pi-img-wrapper>div {
-	display: block;
+.product_rassurance .list-inline li:hover {
+	color: #343a40;
 }
-
-.imgcl {
-	border: 0px solid;
-	padding: 0px;
-	background: #dddddd;
-	border-top-right-radius: 1em;
-	border-top-left-radius: 1em;
-}
-
-.wrcl div .btn {
-	padding: 20px 10px;
-	color: #fff;
-	border: 1px #ffffff solid;
-	margin: -13px 5px 0;
-	background: transparent;
-	text-transform: uppercase;
-	position: relative;
-	top: 30%;
-	line-height: 0.5;
-	/* height of hover buttons */
-	font-size: 12px;
-}
-
-
-/* All abt Add To Cart Button */
-
-.picl .btncl {
-	color: #000000;
-	/* Add to cart font color */
-	margin: -4px -4px 0px 40px;
-	/* position of button within frame */
-	background: #fee408;
-}
-
-.picl .btncl:hover {
-	color: #FFFFFF;
-	/* Add to cart font color */
-	background: #e84d1c;
-}
-
-
-/* Product Name Fonts */
-
-.picl h3 {
-	font-size: 14px;
-	font-weight: 300;
-	padding-bottom: 4px;
-	text-transform: uppercase;
-}
-
-.picl h3 a {
-	padding: 10px;
-	color: #FFFFFF;
-}
-
-.picl h3 a:hover {
-	color: #fee408;
-}
-
-.pi-price {
-	padding: 10px;
-	color: #ffffff;
-	font-size: 18px;
-	float: left;
-	padding-top: 1px;
-}
-
-.picl .add2cart {
-	float: right;
-	color: #000000;
-	/* Add to cart font color */
-	border: 1px #ededed solid;
-	padding: 3px 6px;
-	text-transform: uppercase;
-}
-
-.picl.add2cart:hover {
-	color: #fff;
-	background: #e84d1c;
-	border-color: #e84d1c;
+.reviews_product .fa-star {
+	color: gold;
 }
 
 

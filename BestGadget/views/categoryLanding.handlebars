@@ -1,21 +1,40 @@
 <div class="container">
-     {{# each products }}
-    <div class="row">
-        {{# each this }}
-        <div class="col-lg-4 col-md-6 p-3 ">
-            <div class="product-item picl">
-              <div class="pi-img-wrapper wrcl">
-                <img src="{{ this.imagepath}}" class="img-responsive img-top-round imgcl" alt="{{ this.title }}">
-              </div>
-              <h3><a href="shop-item.html">{{ this.description }}</a></h3>
-              <div class="pi-price">${{ this.price }}</div>
-            <a href="#" class="btn cart btncl">Add to cart</a>
-              <div class="sticker sticker-new"></div>
-            </div>
+    <div class="row"> 
+      	<h2>Laptops</h2> 
+        <div class="btn-group btn-breadcrumb">
+            <a href="#" class="btn btn-default"><i class="fa fa-home" aria-hidden="true"></i></a>
+            <a href="#" class="btn btn-default">Snippets</a>
+            <a href="#" class="btn btn-default">Breadcrumbs</a>
+            <a href="#" class="btn btn-default">Info</a>
         </div>
-          <div class="row visible-xs"><br></div>
-          {{/each  }}
-    </div>
-    <br>
-        {{/each}}
+	</div>
+</div>
+<div class="container">
+        <div class="col">
+          {{# each products }}
+            <div class="row">
+              {{# each this }}
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card">
+                      <a href="/{{this.id}}/productDetails">
+                         <img class="card-img-top" src="{{ this.imagepath}}" alt="{{ this.title }}">
+                       </a>
+                        <div class="card-body">
+                            <h4 class="card-title"><a href="product.html" title="{{ this.title }}">{{ this.title }}</a></h4>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <div class="row">
+                                <div class="col">
+                                    <p class="btn btn-danger btn-block">{{ this.price }} $</p>
+                                </div>
+                                <div class="col">
+                                    <a href="#" class="btn btn-success btn-block">Add to cart</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+            {{/each}}
+        </div>
 </div>
