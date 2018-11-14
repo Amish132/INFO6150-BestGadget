@@ -79,8 +79,9 @@ h2:after {
 	height: 1px;
 	content: " ";
 	text-shadow: none;
-	background-color: #999;
+	background-color: rgb(0, 0, 0);
 	width: 300px;
+	height: 2px;
 }
 
 
@@ -100,8 +101,9 @@ h2:before {
 	height: 1px;
 	content: " ";
 	text-shadow: none;
-	background-color: #999;
+	background-color: rgb(0, 0, 0);
 	width: 300px;
+	height: 2px;
 }
 
 

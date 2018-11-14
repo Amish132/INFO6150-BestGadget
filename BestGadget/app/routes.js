@@ -177,6 +177,10 @@ module.exports = function (app) {
 		res.render('careers');
 	});
 
+	app.get('/cart', function (req, res) {
+		res.render('cart');
+	});
+
 	app.get('/payments', function (req, res) {
 		res.render('payments');
 	});
