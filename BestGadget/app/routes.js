@@ -216,7 +216,7 @@ module.exports = function (app) {
 	});
 
 	app.get('/register', isLoggedOut,function (req, res) {
-		res.render('register');
+		res.render('register',{csrfToken: req.csrfToken()});
 	});
 
 	app.get('/login', isLoggedOut,function (req, res) {
