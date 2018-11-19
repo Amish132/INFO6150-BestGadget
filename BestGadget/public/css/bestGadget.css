@@ -4,7 +4,14 @@
 	margin: 68px auto 40px;
 	text-align: center;
 }
-
+.jumbo
+{
+	text-indent: 50px;
+	text-align: center;
+	font-style: normal;
+	font-size: 20px;
+	font-weight: bold;
+}
 h2,
 h3 {
 	width: 100%;
@@ -646,7 +653,7 @@ a:visited {
 	left: auto !important;
 	right: 0px;
 	width: 200px;
-    margin-right: -50px;
+    margin-right: -40px;
 }
 
 .ml-auto .dropdown-item:hover {

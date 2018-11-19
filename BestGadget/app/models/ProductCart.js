@@ -12,7 +12,7 @@ module.exports=function productCart(oldCart){
     storedItem.price = storedItem.item.price * storedItem.qty;
     this.totalQty++;
     this.totalPrice += storedItem.item.price;
-  };
+  }
 
   this.reduceByOne = function(id) {
     this.items[id].qty--;
@@ -23,7 +23,18 @@ module.exports=function productCart(oldCart){
     if(this.items[id].qty <= 0) {
       delete this.items[id];
     }
-  };
+  }
+
+  this.increaseByOne = function(id) {
+    this.items[id].qty++;
+    this.items[id].price += this.items[id].item.price;
+    this.totalQty++;
+    this.totalPrice += this.items[id].item.price;
+    
+   /* if(this.items[id].qty <= 0) {
+      delete this.items[id];
+    }*/
+  }
   
   this.removeItem = function(id) {    
     this.totalQty -= this.items[id].qty;
@@ -31,7 +42,7 @@ module.exports=function productCart(oldCart){
     this.totalPrice -= this.items[id].price;
    
     delete this.items[id]; 
-  };
+  }
   
   
   this.generateArray = function() {
@@ -41,6 +52,6 @@ module.exports=function productCart(oldCart){
       arr.push(this.items[id]);
     }
     return arr;
-  };
+  }
   
 }
