@@ -187,12 +187,60 @@ module.exports = function (app) {
 			  return res.redirect("/");
 			}
 			cart.add(product, product.id);
-			req.session.cart = cart;		
-			console.log(req.session.cart);	
+			req.session.cart = cart;			
 			res.redirect("/");
 		//res.render('cart');
 	});
 });
+	app.get('/cart', function (req, res) {
+		if(!req.session.cart)
+		{
+			return res.render('cart',{products:null});
+		}
+		var cart = new ProductCart(req.session.cart);
+		res.render('cart', {products: cart.generateArray(),totalPrice: cart.totalPrice} );
+	});
+
+
+
+	app.get("/reduce/:id", function(req, res, next){
+		var productId = req.params.id;
+		var cart = new ProductCart(req.session.cart ? req.session.cart : {});
+	  
+		cart.reduceByOne(productId);
+		
+		// after reduce one, need to reassign cart into session.
+		req.session.cart = cart;
+		
+		// shopping-cart is where we have list of products
+		res.redirect("/cart");
+	  });
+
+	  app.get("/remove/:id", function(req, res, next){
+		var productId = req.params.id;
+		var cart = new ProductCart(req.session.cart ? req.session.cart : {});
+	  
+		cart.removeItem(productId);
+		
+		// after reduce one, need to reassign cart into session.
+		req.session.cart = cart;
+		
+		// shopping-cart is where we have list of products
+		res.redirect("/cart");
+	  });
+
+	  app.get("/increaseByOne/:id", function(req, res, next){
+		var productId = req.params.id;
+		var cart = new ProductCart(req.session.cart ? req.session.cart : {});
+	  
+		cart.increaseByOne(productId);
+		
+		// after reduce one, need to reassign cart into session.
+		req.session.cart = cart;
+		
+		// shopping-cart is where we have list of products
+		res.redirect("/cart");
+	  });
 
 	app.get('/payments', function (req, res) {
 		res.render('payments');
