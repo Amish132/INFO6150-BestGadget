@@ -7,6 +7,7 @@ var User = require('./models/buygadgets');
 var Product = require('./models/proudct');
 var csrf = require('csurf');
 var csrfProtection = csrf();
+var ProductCart =require('./models/ProductCart');
 
 
 module.exports = function (app) {
@@ -177,9 +178,21 @@ module.exports = function (app) {
 		res.render('careers');
 	});
 
-	app.get('/cart', function (req, res) {
-		res.render('cart');
+	app.get('/add-to-cart/:id', function (req, res) {
+		var productId= req.params.id;
+		var cart =new ProductCart(req.session.cart ?req.session.cart:{} )
+		Product.findById(productId, function(err, product){
+			if(err) {
+			  // result, not request
+			  return res.redirect("/");
+			}
+			cart.add(product, product.id);
+			req.session.cart = cart;		
+			console.log(req.session.cart);	
+			res.redirect("/");
+		//res.render('cart');
 	});
+});
 
 	app.get('/payments', function (req, res) {
 		res.render('payments');
