@@ -646,6 +646,7 @@ a:visited {
 	left: auto !important;
 	right: 0px;
 	width: 200px;
+    margin-right: -50px;
 }
 
 .ml-auto .dropdown-item:hover {

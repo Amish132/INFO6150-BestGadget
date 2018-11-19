@@ -35,7 +35,7 @@
 </div>
 <div class="container-fluid bg-light" style="padding-top:70px;padding-bottom:70px">
   <div class="section-heading">
-      <h2 class="section-title">Trending Products</h2>
+      <h2 class="section-title">Popular Products</h2>
     </div>
   {{# each products }}
   <div class="row">
@@ -62,7 +62,7 @@
             <p class="card-text">{{ this.description }}</p>
             <div class="btn-group" role="group" aria-label="Basic example">
               <span class="btn btn-outline-blue-grey">$ {{ this.price }}</span>
-              <button type="button" class="btn btn-outline-blue-grey">Buy now <i class="icon-cart3"></i></button>
+             <a href="#"> <button type="button" class="btn btn-success">Add to Cart<i class="fa fa-shopping-cart"></i></button> </a>
             </div>
           </div>
         </div>
@@ -75,7 +75,7 @@
 <div class="container">
   <div class="row brand">
     <div class="section-heading">
-      <h2 class="section-title">Popular Brands</h2>
+      <h2 class="section-title">Trending Brands</h2>
     </div>
     <div class="col-md-12">
       <div id="brandCarousel" class="carousel slide" data-ride="carousel">

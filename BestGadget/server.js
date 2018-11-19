@@ -14,6 +14,7 @@ var flash = require('connect-flash');
 var session = require('express-session');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
+var MongoStoreSession = require('connect-mongo')(session);
 
 // configuration ===========================================
 
@@ -48,7 +49,9 @@ app.use(express.static(__dirname + '/public'));
 app.use(session({
     secret: 'bestGadgetsecret',
     saveUninitialized: false,
-    resave: false
+    resave: false,
+    store: new MongoStoreSession({mongooseConnection: mongoose.connection}),
+    cookie : { maxAge:  120 * 60 * 1000}
 }));
 
 // Express Validator
@@ -82,6 +85,7 @@ app.use(function (req, res, next) {
   res.locals.error_msg = req.flash('error_msg');
   res.locals.error = req.flash('error');
   res.locals.user = req.user || null;
+  res.locals.session = req.session;
   next();
 });
 
