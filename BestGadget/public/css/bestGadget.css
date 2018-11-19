@@ -4,6 +4,12 @@
 	margin: 68px auto 40px;
 	text-align: center;
 }
+.imagesize
+{
+	border-top-left-radius: calc(.25rem - 1px);
+    border-top-right-radius: calc(.25rem - 1px);
+	height: 180px;
+}
 .jumbo
 {
 	text-indent: 50px;
