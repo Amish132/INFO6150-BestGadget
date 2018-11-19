@@ -927,3 +927,135 @@ p.card-text:hover {
 .card {
 	max-height: 150%;
 }
+
+
+/* shopping cart */
+.hero{
+	margin-top: 50px;
+}
+.hero-heading {
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	margin-bottom: 2rem
+}
+
+@media (max-width: 991.98px) {
+	h1.hero-heading {
+		font-size: 2.025rem
+	}
+	h2.hero-heading {
+		font-size: 1.35rem
+	}
+	h3.hero-heading {
+		font-size: .9rem
+	}
+}
+section {
+	display: block
+}
+.block-header {
+	padding: 1.2rem 1.5rem;
+	background: #f8f9fa
+}
+
+.block-body {
+	padding: 1.2rem 1.5rem
+}
+
+.cart-header {
+	text-transform: uppercase;
+	letter-spacing: 0.2em;
+	font-weight: bold;
+	padding: 1.2rem 2rem;
+	background: #f8f9fa
+}
+
+.cart-body {
+	padding: 0 2rem
+}
+
+.cart-footer {
+	background: #f8f9fa;
+	padding: 0 2rem
+}
+
+.cart-footer .cart-item {
+	padding-top: 1rem;
+	padding-bottom: 1rem
+}
+
+.cart-item {
+	padding-top: 1.5rem;
+	padding-bottom: 1.5rem;
+	border-bottom: 1px solid #e9ecef
+}
+
+.cart-item:last-of-type {
+	border-bottom: none
+}
+
+.cart-item-img {
+	max-width: 80px
+}
+
+.cart-title {
+	margin-left: 1rem
+}
+
+.cart-remove {
+	color: #495057;
+	font-size: .7875rem
+}
+
+.order-summary-item {
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-pack: justify;
+	justify-content: space-between;
+	padding-top: 1.5rem;
+	padding-bottom: 1.5rem;
+	border-bottom: 1px solid #eee
+}
+
+.order-summary-total {
+	font-weight: 700;
+	font-size: 1.2em
+}
+
+.btn.btn-items {
+	color: #868e96;
+	padding-left: .2rem;
+	padding-right: .2rem;
+	text-align: center
+}
+
+.input-items {
+	min-width: 40px
+}
+
+.justify-content-between {
+    -ms-flex-pack: justify !important;
+    justify-content: space-between !important;
+}
+.col-lg-8 .my-5{
+	margin-top: 5rem!important;
+}
+.d-flex {
+    display: -ms-flexbox !important;
+    display: flex !important;
+}
+
+@media (max-width: 991.98px) {
+	.cart {
+		overflow-x: auto
+	}
+	.cart-wrapper {
+		min-width: 768px
+	}
+}
+@media (min-width: 992px){
+.flex-lg-row {
+    -ms-flex-direction: row !important;
+    flex-direction: row !important;
+}
+}
