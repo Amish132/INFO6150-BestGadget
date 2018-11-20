@@ -745,11 +745,11 @@ img {
 }
 
 .tab-content img {
-	width: 100%;
 	-webkit-animation-name: opacity;
 	animation-name: opacity;
 	-webkit-animation-duration: .3s;
 	animation-duration: .3s;
+	height: 270px;
 }
 
 .card {
