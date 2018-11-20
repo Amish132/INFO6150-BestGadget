@@ -10,6 +10,12 @@
     border-top-right-radius: calc(.25rem - 1px);
 	height: 180px;
 }
+.categoryLanding
+{
+	border-top-left-radius: calc(.25rem - 1px);
+    border-top-right-radius: calc(.25rem - 1px);
+	height: 180px;
+}
 .jumbo
 {
 	text-indent: 50px;
