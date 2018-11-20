@@ -137,7 +137,12 @@ module.exports = function (app) {
 				ntimes: function (n, block) { var accum = '';
 				for(var i = 5; i > n; i--)
 					accum += block.fn(i);
-				return accum;}
+				return accum;},
+				carttimes: function (n, block) { var accum = '';
+				for(var i = 0; i <6; i++)
+					accum += block.fn(i);
+				return accum;},
+
 
 			}
 
@@ -178,8 +183,10 @@ module.exports = function (app) {
 		res.render('careers');
 	});
 
-	app.get('/add-to-cart/:id', function (req, res) {
+	app.get('/add-to-cart/:id/:pdp', function (req, res) {
 		var productId= req.params.id;
+		var pdpFlag = req.params.pdp;
+		console.log(pdpFlag);
 		var cart =new ProductCart(req.session.cart ?req.session.cart:{} )
 		Product.findById(productId, function(err, product){
 			if(err) {
@@ -187,8 +194,13 @@ module.exports = function (app) {
 			  return res.redirect("/");
 			}
 			cart.add(product, product.id);
-			req.session.cart = cart;			
+			req.session.cart = cart;
+			if(pdpFlag=="true"){
+				res.redirect("/cart");
+			}
+			else{			
 			res.redirect("/");
+			}
 		//res.render('cart');
 	});
 });
@@ -312,6 +324,22 @@ module.exports = function (app) {
 	app.get('/categoryLanding', function (req, res) {
 
 		Product.find(function(err, productLength){
+			var popularProducts = [];
+			var rowSize = 3;
+			for(var i= 0; i <productLength.length; i+=rowSize){
+				popularProducts.push(productLength.slice(i, i+rowSize));
+			}
+			res.render('categoryLanding',{products: popularProducts})
+
+			
+		});
+	     
+	});
+	app.get('/categoryLanding/:category', function (req, res) {
+		var category = req.params.category;
+		console.log(category);
+		
+		Product.find({$or:[{Category:category},{Brand:category}]},function(err, productLength){
 			var popularProducts = [];
 			var rowSize = 3;
 			for(var i= 0; i <productLength.length; i+=rowSize){
