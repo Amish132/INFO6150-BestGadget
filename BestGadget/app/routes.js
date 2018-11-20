@@ -8,6 +8,7 @@ var Product = require('./models/proudct');
 var csrf = require('csurf');
 var csrfProtection = csrf();
 var ProductCart =require('./models/ProductCart');
+var Order = require('./models/order');
 
 
 module.exports = function (app) {
@@ -60,7 +61,7 @@ module.exports = function (app) {
 						});
 						User.createUser(newUser, function (err, user) {
 							if (err) throw err;
-							console.log(user);
+							
 						});
 				 req.flash('success_msg', 'You are registered and can now login');
 						res.redirect('login');
@@ -74,7 +75,7 @@ module.exports = function (app) {
 		function (username, password, done) {
 			User.getUserByUsername(username, function (err, user) {
 				if (err) throw err;
-				console.log(user);
+
 				if (!user) {
 					return done(null, false, { message: 'Unknown User' });
 				}
@@ -172,6 +173,12 @@ module.exports = function (app) {
 
 	app.get('/aboutus', function (req, res) {
 		res.render('aboutus');
+		
+	});
+
+	app.get('/orderConfirmation', isLoggedIn,function (req, res) {
+		var successMsg = req.flash('success')[0];
+		res.render('orderConfirmation',{successMsg: successMsg,noMessage: !successMsg});
 		
 	});
 
@@ -299,12 +306,62 @@ module.exports = function (app) {
 		res.render('productDetails');
 	});	
 	app.get('/checkout', isLoggedIn,function (req, res) {
-		res.render('checkout');
+		if(!req.session.cart)
+		{
+			return res.render('cart',{products:null});
+		}
+		var cart = new ProductCart(req.session.cart);
+		var errMsg = req.flash("error")[0];
+		res.render('checkout', {products: cart.generateArray(),totalPrice: cart.totalPrice,totalItems: cart.totalQty,errMsg: errMsg, noError: !errMsg , csrfToken: req.csrfToken()} );
 	});
+
+	app.post('/checkout',isLoggedIn, function (req, res) {
+		if(!req.session.cart)
+		{
+			return res.render('cart',{products:null});
+		}
+		var cart = new ProductCart(req.session.cart);
+
+		var stripe = require("stripe")("sk_test_tWsWzln21gDSilY96LAT5czA");
+			stripe.charges.create({
+			amount: cart.totalPrice * 100,
+			currency: "usd",
+			source: req.body.stripeToken, // obtained with Stripe.js
+			description: "Test BuyGadgets"
+			}, function(err, charge) {
+			  if(err){
+				  console.log(err);
+				  req.flash('error', err.message);
+				  return res.redirect('/checkout');
+			  }
+			  var order = new Order({
+				user: req.user,
+				cart: cart,
+				address: req.body.address,
+				name: req.body.username,
+				paymentId: charge.id
+			  });
+			  
+			  order.save(function(err, result){
+				if(err) {
+					console.log(err);
+			   return res.redirect('/checkout');
+			}
+			  req.flash('success','Product Succesfully purchased');
+			  req.session.cart = null;
+			  res.redirect('/orderConfirmation');
+			  });
+			
+			});
+		
+	});
+
+
+
+
 	app.get('/:pid/productDetails', function (req, res) {
 		var id = req.params.pid;
 		Product.findById(id,function(err,productLength){
-			console.log(productLength);
 			res.render('productDetails',{products: productLength,helpers: {
 				times: function (n, block) { var accum = '';
 				for(var i = 0; i < n; i++)
