@@ -205,6 +205,9 @@ module.exports = function (app) {
 		res.render('terms');
 	});
 
+	app.get('/services', function (req, res) {
+		res.render('services');
+	});
 
 	app.get('/security', function (req, res) {
 		res.render('security');
