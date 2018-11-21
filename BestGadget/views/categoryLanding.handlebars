@@ -1,10 +1,10 @@
 <div class="container">
     <div class="row"> 
-      	<h2>Laptops</h2> 
+      	<h2>{{category}}</h2> 
         <div class="btn-group btn-breadcrumb">
-            <a href="#" class="btn btn-default"><i class="fa fa-home" aria-hidden="true"></i></a>
-            <a href="#" class="btn btn-default">Snippets</a>
-            <a href="#" class="btn btn-default">Breadcrumbs</a>
+            <a href="/" class="btn btn-default"><i class="fa fa-home" aria-hidden="true"></i></a>
+            <a href="#" class="btn btn-default">{{breadcumb}}</a>
+            <a href="#" class="btn btn-default">{{category}}</a>
             <a href="#" class="btn btn-default">Info</a>
         </div>
 	</div>
@@ -21,6 +21,14 @@
                        </a>
                         <div class="card-body">
                             <h6 class="card-title"><a href="product.html" title="{{ this.title }}">{{ this.title }}</a></h6>
+                            <div class="stars">
+                         {{#times this.productRating}}
+                            <span class="fa fa-star checked"></span>
+                              {{/times}}
+                            {{#ntimes this.productRating}}
+                        <span class="fa fa-star"></span>
+                             {{/ntimes}}
+							</div>
                             <p class="card-text">{{ this.description }}</p>
                             <div class="row">
                                 <div class="col">
