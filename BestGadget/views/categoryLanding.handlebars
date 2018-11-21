@@ -21,6 +21,14 @@
                        </a>
                         <div class="card-body">
                             <h6 class="card-title"><a href="product.html" title="{{ this.title }}">{{ this.title }}</a></h6>
+                            <div class="stars">
+                         {{#times this.productRating}}
+                            <span class="fa fa-star checked"></span>
+                              {{/times}}
+                            {{#ntimes this.productRating}}
+                        <span class="fa fa-star"></span>
+                             {{/ntimes}}
+							</div>
                             <p class="card-text">{{ this.description }}</p>
                             <div class="row">
                                 <div class="col">
