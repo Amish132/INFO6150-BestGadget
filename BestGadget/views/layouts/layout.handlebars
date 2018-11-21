@@ -133,13 +133,18 @@
           <li class="nav-item pl-5" style="font-size:20px">
             <a class="nav-link" href="#">Services</a>
           </li>
+          <li class="nav-item pl-5 " style="font-size:20px">
+               {{#if user}}
+            <a class="nav-link text-white"> Hello {{#each user}}  {{this.username}}  {{/each}}</a>
+
+                    {{/if}}
+          </li>
         </ul>
         <ul class="navbar-nav ml-auto pl-5">
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-user-circle-o" style="font-size:20px"></i></a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                      {{#if user}}
-                      <p class="text-uppercase text-white loggoedInUser"> Welcome {{#each user}}  {{this.username}}   {{/each}}  </p>
                      <button class="dropdown-item text-uppercase text-white btn btn-secondary"  type="button" onclick="location.href='/logout'">Logout</button>
                       {{else}}
                     <button class="dropdown-item text-uppercase text-white btn btn-secondary"  type="button" onclick="location.href='/login'">Login</button>

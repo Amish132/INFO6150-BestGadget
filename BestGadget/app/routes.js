@@ -124,12 +124,13 @@ module.exports = function (app) {
 	// frontend routes =========================================================
 	// route to handle all angular requests
 	app.get('/', function (req, res) {
-		Product.find(function(err, productLength){
+		Product.find({ productRating: { $gte: 4 } },function(err, productLength){
 			var popularProducts = [];
 			var rowSize = 3;
-			for(var i= 0; i <productLength.length; i+=rowSize){
+			for(var i= 0; i < 6; i+=rowSize){
 				popularProducts.push(productLength.slice(i, i+rowSize));
 			}
+		
 			res.render('home',{products: popularProducts, helpers: {
 				times: function (n, block) { var accum = '';
 				for(var i = 0; i < n; i++)
@@ -394,7 +395,14 @@ module.exports = function (app) {
 	});
 	app.get('/categoryLanding/:category', function (req, res) {
 		var category = req.params.category;
-		console.log(category);
+		if((category=="Laptop")||(category=="Mobile")||(category=="Tablet")||(category=="MobileCase")||(category=="HeadPhones")||(category=="powerBanks")||(category=="HardDisk")||(category=="Pendrive")||(category=="Keyboard"))
+		{
+			var breadcumb ="Products";
+
+		}else
+		{
+			var breadcumb ="Brands";
+		}
 		
 		Product.find({$or:[{Category:category},{Brand:category}]},function(err, productLength){
 			var popularProducts = [];
@@ -402,7 +410,7 @@ module.exports = function (app) {
 			for(var i= 0; i <productLength.length; i+=rowSize){
 				popularProducts.push(productLength.slice(i, i+rowSize));
 			}
-			res.render('categoryLanding',{products: popularProducts})
+			res.render('categoryLanding',{products: popularProducts,category:category,breadcumb:breadcumb})
 
 			
 		});
