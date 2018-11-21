@@ -39,13 +39,13 @@
                         <span class="text-uppercase text-white">Product</span>
                         <ul class="nav flex-column">
                             <li class="nav-item">
-                                <a class="nav-link active" href="#">Laptops</a>
+                                <a class="nav-link active" href="/categoryLanding/Laptop">Laptops</a>
                               </li>
                               <li class="nav-item">
-                                <a class="nav-link" href="#">Mobiles</a>
+                                <a class="nav-link" href="/categoryLanding/Mobile">Mobiles</a>
                               </li>
                               <li class="nav-item">
-                                <a class="nav-link" href="#">Tablets</a>
+                                <a class="nav-link" href="/categoryLanding/Tablet">Tablets</a>
                               </li>
                         </ul>
                     </div>
@@ -53,13 +53,13 @@
                         <span class="text-uppercase text-white">Mobile Accessories</span>
                         <ul class="nav flex-column">
                             <li class="nav-item">
-                                <a class="nav-link active" href="#">Mobile Cases</a>
+                                <a class="nav-link active" href="/categoryLanding/MobileCase">Mobile Cases</a>
                               </li>
                               <li class="nav-item">
-                                <a class="nav-link" href="#">Headphones & Headsets</a>
+                                <a class="nav-link" href="/categoryLanding/HeadPhones">Headphones & Headsets</a>
                               </li>
                               <li class="nav-item">
-                                <a class="nav-link" href="#">Power Banks</a>
+                                <a class="nav-link" href="/categoryLanding/powerBanks">Power Banks</a>
                               </li>
                         </ul>
                     </div>
@@ -67,13 +67,13 @@
                         <span class="text-uppercase text-white">Computer Accessories</span>
                         <ul class="nav flex-column">
                             <li class="nav-item">
-                                <a class="nav-link active" href="#">External Hard Disks</a>
+                                <a class="nav-link active" href="/categoryLanding/HardDisk">External Hard Disks</a>
                               </li>
                               <li class="nav-item">
-                                <a class="nav-link" href="#">Pendrives</a>
+                                <a class="nav-link" href="/categoryLanding/Pendrive">Pendrives</a>
                               </li>
                               <li class="nav-item">
-                                <a class="nav-link" href="#">Keyboards</a>
+                                <a class="nav-link" href="/categoryLanding/Keyboard">Keyboards</a>
                               </li>
                         </ul>
                     </div>              
@@ -81,23 +81,61 @@
                   </div>
               </div>
           </li>
+          <!--changes to the new style drop-->
           <li class="nav-item pl-5" style="font-size:20px">
-           <a class="nav-link dropdown-toggle  " href="#"id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Brands</a>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <a class="dropdown-item" style="text-align: center" href="#">Apple</a>
-                  <a class="dropdown-item" style="text-align: center" href="#">Lenovo</a>
-                  <a class="dropdown-item" style="text-align: center" href="#">Oneplus</a>
-                  <a class="dropdown-item" style="text-align: center" href="#">Canon</a>
-                   <a class="dropdown-item" style="text-align: center" href="#">Dell</a>
-                   <a class="dropdown-item" style="text-align: center" href="#">Bose</a>
-               </div>                      
+            <a class="nav-link dropdown-toggle " href="#"id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Brands</a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-md-4">
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="/categoryLanding/Lenovo">Lenovo</a>
+                              </li>
+                              <li class="nav-item">
+                                <a class="nav-link" href="/categoryLanding/Oneplus">Oneplus</a>
+                              </li>
+                              <li class="nav-item">
+                                <a class="nav-link" href="/categoryLanding/Canon">Canon</a>
+                              </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="/categoryLanding/Apple">Apple</a>
+                              </li>
+                              <li class="nav-item">
+                                <a class="nav-link" href="/categoryLanding/Dell">Dell</a>
+                              </li>
+                              <li class="nav-item">
+                                <a class="nav-link" href="/categoryLanding/Bose">Bose</a>
+                              </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="/categoryLanding/LG">LG</a>
+                              </li>
+                              <li class="nav-item">
+                                <a class="nav-link" href="/categoryLanding/Lenovo">Lenovo</a>
+                              </li>
+                              <li class="nav-item">
+                                <a class="nav-link" href="/categoryLanding/Hp">Hp</a>
+                              </li>
+                        </ul>
+                    </div>           
+                  </div>
+                  </div>
+              </div>
           </li>
           <li class="nav-item pl-5" style="font-size:20px">
             <a class="nav-link" href="/services">Services</a>
           </li>
         </ul>
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item dropdown pl-5">
+        <ul class="navbar-nav ml-auto pl-5">
+            <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-user-circle-o" style="font-size:20px"></i></a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                      {{#if user}}
@@ -109,8 +147,15 @@
                     {{/if}}
                   </div>
           </li>
+<<<<<<< HEAD
           <li class="nav-item pl-5">
             <a class="nav-link" href="/cart"> <i class="fa fa-shopping-cart" style="font-size:20px"></i></a>
+=======
+          <li class="nav-item">
+            <a class="nav-link" href="/cart"> <i class="fa fa-shopping-cart" style="font-size:20px"></i>
+            <span class="badge badge-light">{{ session.cart.totalQty }}</span>
+            </a>
+>>>>>>> 9e63967b198790034e2709a45008c0c1e0d0a754
             </li>
         </ul>
       </div>

@@ -23,7 +23,14 @@ var schema = new Schema({
 	},
 	productRating: {
 		type: Number
+	},
+	Category:{
+		type: String,
+	},
+	Brand:{
+		type: String,
 	}
+
 });	
 
 module.exports = mongoose.model("ProductBuyGadgets", schema);
