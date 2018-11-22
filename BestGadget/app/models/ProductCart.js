@@ -2,16 +2,27 @@ module.exports=function productCart(oldCart){
   this.items = oldCart.items || {};
   this.totalQty = oldCart.totalQty || 0;
   this.totalPrice = oldCart.totalPrice || 0;
-  this.add = function(item, id) {
+  this.add = function(item, id,quantity) {
     var existingItem = this.items[id];
     if(!existingItem) {
-      existingItem = this.items[id] = {item: item, qty: 0, price: 0};
+      existingItem = this.items[id] = {item: item, qty: quantity, price: 0};
+    }
+    else
+    {
+    existingItem.qty+=quantity;
+    }
+    existingItem.price = existingItem.item.price * existingItem.qty;
+    
+    if(oldCart.totalQty){
+    this.totalQty = (oldCart.totalQty + quantity);
+    this.totalPrice = (oldCart.totalPrice)+(existingItem.item.price*quantity);
+    }
+    else{
+      this.totalQty = existingItem.qty;
+      this.totalPrice = (existingItem.price);
     }
 
-    existingItem.qty++;
-    existingItem.price = existingItem.item.price * existingItem.qty;
-    this.totalQty++;
-    this.totalPrice += existingItem.item.price;
+    
   }
 
   this.reduceByOne = function(id) {

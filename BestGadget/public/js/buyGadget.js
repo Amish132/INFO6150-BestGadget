@@ -9,6 +9,10 @@ $(document).ready(function () {
 		$(this).next('.cd-faq-content').slideToggle(200).toggleClass('content-visible');
 
 	});
+	$('.quantity a').on('click', function(){    
+        $('.quantity-toggle').html($(this).html());    
+    })
+
 	$(".navbar .dropdown-toggle").hover(function () {
 
 		$(this).parent().addClass("show");
@@ -97,3 +101,20 @@ $(document).ready(function () {
 
 	// document ready  
 });
+function myFunction(productId){
+	var prodId = productId; 
+	var quantityVal = $(".quantity-item").val(); 
+	if(quantityVal=="")
+	{
+		alert("please select the quantity");
+
+	}
+	else
+	{
+	var url = 'http://localhost:8080/add-to-cart/' +prodId+ '/true/' +quantityVal;  
+	window.location.href =  url;           
+	//var url = '@baseAddress' + '/location/details/' + val;
+
+	//window.location = url;
+	}
+}

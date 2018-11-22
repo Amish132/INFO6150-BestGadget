@@ -4,6 +4,11 @@
 	margin: 68px auto 40px;
 	text-align: center;
 }
+/*Setting the input in product details page*/
+.quantity-item {
+	display: none;
+  }
+  /*Setting the input in product details page*/
 .imagesize
 {
 	border-top-left-radius: calc(.25rem - 1px);
