@@ -26,16 +26,16 @@
 						</div>
 						<h5 class="sizes">Quantity:
                            <div class="dropdown" style="display: inline-block"> 
-                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Select</button>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" href="#">1</a>
-                                        <a class="dropdown-item" href="#">2</a>
-                                        <a class="dropdown-item" href="#">3</a>
+                                    <button class="btn btn-secondary dropdown-toggle  quantity-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Select</button>
+                                    <div class="dropdown-menu quantity" aria-labelledby="dropdownMenuButton">
+                                        <a class="dropdown-item quantity-item" href="#"><input class="quantity-item" value="1">1</input></a>
+                                        <a class="dropdown-item quantity-item" href="#"><input class="quantity-item" value="2">2</input></a>
+                                        <a class="dropdown-item quantity-item" href="#"><input class="quantity-item" value="3">3</input></a>
                                     </div>
                                 </div>
                            </h5>
 						<div class="action">
-							 <a href="/add-to-cart/{{products.id}}/true" class="btn btn-success">Add to cart</a>
+							 <a onclick="myFunction('{{products.id}}')" class="btn btn-success addCart">Add to cart</a>
 						</div>
 					</div>
 				</div>
