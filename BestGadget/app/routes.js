@@ -63,7 +63,7 @@ module.exports = function (app) {
 							if (err) throw err;
 							
 						});
-				 req.flash('success_msg', 'You are registered and can now login');
+				        req.flash('success_msg', 'You are registered and can now login');
 						res.redirect('login');
 					}
 				});
@@ -102,9 +102,17 @@ module.exports = function (app) {
 	});
 	
 	app.post('/login',
-		passport.authenticate('local', { successRedirect: '/', failureRedirect: 'login', failureFlash: true }),
+		passport.authenticate('local', {failureRedirect: 'login', failureFlash: true }),
 		function (req, res) {
-			res.redirect('/');
+			if(req.session.existing) {
+				var existing = req.session.existing;
+				req.session.existing = null;
+				res.redirect(existing);
+			  }
+			  else{
+				res.redirect('/');
+			  }
+			
 		});
 	
 	app.get('/logout', function (req, res) {
@@ -124,12 +132,13 @@ module.exports = function (app) {
 	// frontend routes =========================================================
 	// route to handle all angular requests
 	app.get('/', function (req, res) {
-		Product.find(function(err, productLength){
+		Product.find({ productRating: { $gte: 4 } },function(err, productLength){
 			var popularProducts = [];
 			var rowSize = 3;
-			for(var i= 0; i <productLength.length; i+=rowSize){
+			for(var i= 0; i < 6; i+=rowSize){
 				popularProducts.push(productLength.slice(i, i+rowSize));
 			}
+		
 			res.render('home',{products: popularProducts, helpers: {
 				times: function (n, block) { var accum = '';
 				for(var i = 0; i < n; i++)
@@ -159,6 +168,7 @@ module.exports = function (app) {
 		if(req.isAuthenticated()){
 		   return next();	 
 		}
+		req.session.existing = req.url;
 		res.redirect('/login');
 
 	}
@@ -217,7 +227,7 @@ module.exports = function (app) {
 			return res.render('cart',{products:null});
 		}
 		var cart = new ProductCart(req.session.cart);
-		res.render('cart', {products: cart.generateArray(),totalPrice: cart.totalPrice} );
+		res.render('cart', {products: cart.generateProductsArray(),totalPrice: cart.totalPrice} );
 	});
 
 
@@ -315,7 +325,7 @@ module.exports = function (app) {
 		}
 		var cart = new ProductCart(req.session.cart);
 		var errMsg = req.flash("error")[0];
-		res.render('checkout', {products: cart.generateArray(),totalPrice: cart.totalPrice,totalItems: cart.totalQty,errMsg: errMsg, noError: !errMsg , csrfToken: req.csrfToken()} );
+		res.render('checkout', {products: cart.generateProductsArray(),totalPrice: cart.totalPrice,totalItems: cart.totalQty,errMsg: errMsg, noError: !errMsg , csrfToken: req.csrfToken()} );
 	});
 
 	app.post('/checkout',isLoggedIn, function (req, res) {
@@ -397,7 +407,14 @@ module.exports = function (app) {
 	});
 	app.get('/categoryLanding/:category', function (req, res) {
 		var category = req.params.category;
-		console.log(category);
+		if((category=="Laptop")||(category=="Mobile")||(category=="Tablet")||(category=="MobileCase")||(category=="HeadPhones")||(category=="powerBanks")||(category=="HardDisk")||(category=="Pendrive")||(category=="Keyboard"))
+		{
+			var breadcumb ="Products";
+
+		}else
+		{
+			var breadcumb ="Brands";
+		}
 		
 		Product.find({$or:[{Category:category},{Brand:category}]},function(err, productLength){
 			var popularProducts = [];
@@ -405,7 +422,22 @@ module.exports = function (app) {
 			for(var i= 0; i <productLength.length; i+=rowSize){
 				popularProducts.push(productLength.slice(i, i+rowSize));
 			}
-			res.render('categoryLanding',{products: popularProducts})
+			res.render('categoryLanding',{products: popularProducts,category:category,breadcumb:breadcumb,helpers: {
+				times: function (n, block) { var accum = '';
+				for(var i = 0; i < n; i++)
+					accum += block.fn(i);
+				return accum;},
+				ntimes: function (n, block) { var accum = '';
+				for(var i = 5; i > n; i--)
+					accum += block.fn(i);
+				return accum;},
+				carttimes: function (n, block) { var accum = '';
+				for(var i = 0; i <6; i++)
+					accum += block.fn(i);
+				return accum;},
+
+
+			}})
 
 			
 		});
