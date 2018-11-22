@@ -63,7 +63,7 @@ module.exports = function (app) {
 							if (err) throw err;
 							
 						});
-				 req.flash('success_msg', 'You are registered and can now login');
+				        req.flash('success_msg', 'You are registered and can now login');
 						res.redirect('login');
 					}
 				});
@@ -102,9 +102,17 @@ module.exports = function (app) {
 	});
 	
 	app.post('/login',
-		passport.authenticate('local', { successRedirect: '/', failureRedirect: 'login', failureFlash: true }),
+		passport.authenticate('local', {failureRedirect: 'login', failureFlash: true }),
 		function (req, res) {
-			res.redirect('/');
+			if(req.session.existing) {
+				var existing = req.session.existing;
+				req.session.existing = null;
+				res.redirect(existing);
+			  }
+			  else{
+				res.redirect('/');
+			  }
+			
 		});
 	
 	app.get('/logout', function (req, res) {
@@ -160,6 +168,7 @@ module.exports = function (app) {
 		if(req.isAuthenticated()){
 		   return next();	 
 		}
+		req.session.existing = req.url;
 		res.redirect('/login');
 
 	}
