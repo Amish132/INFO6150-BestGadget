@@ -227,7 +227,7 @@ module.exports = function (app) {
 			return res.render('cart',{products:null});
 		}
 		var cart = new ProductCart(req.session.cart);
-		res.render('cart', {products: cart.generateArray(),totalPrice: cart.totalPrice} );
+		res.render('cart', {products: cart.generateProductsArray(),totalPrice: cart.totalPrice} );
 	});
 
 
@@ -322,7 +322,7 @@ module.exports = function (app) {
 		}
 		var cart = new ProductCart(req.session.cart);
 		var errMsg = req.flash("error")[0];
-		res.render('checkout', {products: cart.generateArray(),totalPrice: cart.totalPrice,totalItems: cart.totalQty,errMsg: errMsg, noError: !errMsg , csrfToken: req.csrfToken()} );
+		res.render('checkout', {products: cart.generateProductsArray(),totalPrice: cart.totalPrice,totalItems: cart.totalQty,errMsg: errMsg, noError: !errMsg , csrfToken: req.csrfToken()} );
 	});
 
 	app.post('/checkout',isLoggedIn, function (req, res) {
