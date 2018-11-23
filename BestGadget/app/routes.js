@@ -295,6 +295,9 @@ app.get('/cart', function (req, res) {
 		res.render('terms');
 	});
 
+	app.get('/services', function (req, res) {
+		res.render('services');
+	});
 
 	app.get('/security', function (req, res) {
 		res.render('security');
