@@ -37,11 +37,12 @@
                     <label for="inputPassword">Password</label>
                   </div>
                   
+                   <input type="hidden" name="_csrf" value="{{ csrfToken }}">
                   <div class="form-label-group">
                     <input type="password" id="inputConfirmPassword" class="form-control" placeholder="Password" name="confirmpassword" >
                     <label for="inputConfirmPassword">Confirm password</label>
                   </div>
-    
+                  
                   <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Register</button>
                   <a class="d-block text-center mt-2 small" href="/login" >Sign In</a>
                   <hr class="my-4">

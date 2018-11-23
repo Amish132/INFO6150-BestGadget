@@ -7,7 +7,7 @@
 					<div class="preview col-md-6">
 						
 						<div class="preview-pic tab-content zoom">
-						  <div class="tab-pane active" id="{{products.id}}"><img src="/{{ products.imagepath}}" /></div>
+						  <div class="tab-pane active .imagesize" id="{{products.id}}"><img src="/{{ products.imagepath}}" /></div>
 						</div>						
 					</div>
 					<div class="details col-md-6">
@@ -26,16 +26,16 @@
 						</div>
 						<h5 class="sizes">Quantity:
                            <div class="dropdown" style="display: inline-block"> 
-                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Select</button>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" href="#">1</a>
-                                        <a class="dropdown-item" href="#">2</a>
-                                        <a class="dropdown-item" href="#">3</a>
+                                    <button class="btn btn-secondary dropdown-toggle  quantity-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Select</button>
+                                    <div class="dropdown-menu quantity" aria-labelledby="dropdownMenuButton">
+                                        <a class="dropdown-item quantity-item" href="#"><input class="quantity-item" value="1">1</input></a>
+                                        <a class="dropdown-item quantity-item" href="#"><input class="quantity-item" value="2">2</input></a>
+                                        <a class="dropdown-item quantity-item" href="#"><input class="quantity-item" value="3">3</input></a>
                                     </div>
                                 </div>
                            </h5>
 						<div class="action">
-							<button class="add-to-cart btn btn-default" type="button">add to cart</button>
+							 <a onclick="myFunction('{{products.id}}')" class="btn btn-success addCart">Add to cart</a>
 						</div>
 					</div>
 				</div>

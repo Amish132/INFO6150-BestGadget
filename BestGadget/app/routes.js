@@ -7,6 +7,8 @@ var User = require('./models/buygadgets');
 var Product = require('./models/proudct');
 var csrf = require('csurf');
 var csrfProtection = csrf();
+var ProductCart =require('./models/ProductCart');
+var Order = require('./models/order');
 
 
 module.exports = function (app) {
@@ -59,9 +61,9 @@ module.exports = function (app) {
 						});
 						User.createUser(newUser, function (err, user) {
 							if (err) throw err;
-							console.log(user);
+							
 						});
-				 req.flash('success_msg', 'You are registered and can now login');
+				        req.flash('success_msg', 'You are registered and can now login');
 						res.redirect('login');
 					}
 				});
@@ -73,7 +75,7 @@ module.exports = function (app) {
 		function (username, password, done) {
 			User.getUserByUsername(username, function (err, user) {
 				if (err) throw err;
-				console.log(user);
+
 				if (!user) {
 					return done(null, false, { message: 'Unknown User' });
 				}
@@ -100,9 +102,17 @@ module.exports = function (app) {
 	});
 	
 	app.post('/login',
-		passport.authenticate('local', { successRedirect: '/', failureRedirect: 'login', failureFlash: true }),
+		passport.authenticate('local', {failureRedirect: 'login', failureFlash: true }),
 		function (req, res) {
-			res.redirect('/');
+			if(req.session.existing) {
+				var existing = req.session.existing;
+				req.session.existing = null;
+				res.redirect(existing);
+			  }
+			  else{
+				res.redirect('/');
+			  }
+			
 		});
 	
 	app.get('/logout', function (req, res) {
@@ -122,12 +132,13 @@ module.exports = function (app) {
 	// frontend routes =========================================================
 	// route to handle all angular requests
 	app.get('/', function (req, res) {
-		Product.find(function(err, productLength){
+		Product.find({ productRating: { $gte: 4 } },function(err, productLength){
 			var popularProducts = [];
 			var rowSize = 3;
-			for(var i= 0; i <productLength.length; i+=rowSize){
+			for(var i= 0; i < 6; i+=rowSize){
 				popularProducts.push(productLength.slice(i, i+rowSize));
 			}
+		
 			res.render('home',{products: popularProducts, helpers: {
 				times: function (n, block) { var accum = '';
 				for(var i = 0; i < n; i++)
@@ -136,7 +147,12 @@ module.exports = function (app) {
 				ntimes: function (n, block) { var accum = '';
 				for(var i = 5; i > n; i--)
 					accum += block.fn(i);
-				return accum;}
+				return accum;},
+				carttimes: function (n, block) { var accum = '';
+				for(var i = 0; i <6; i++)
+					accum += block.fn(i);
+				return accum;},
+
 
 			}
 
@@ -152,6 +168,7 @@ module.exports = function (app) {
 		if(req.isAuthenticated()){
 		   return next();	 
 		}
+		req.session.existing = req.url;
 		res.redirect('/login');
 
 	}
@@ -169,6 +186,12 @@ module.exports = function (app) {
 		
 	});
 
+	app.get('/orderConfirmation', isLoggedIn,function (req, res) {
+		var successMsg = req.flash('success')[0];
+		res.render('orderConfirmation',{successMsg: successMsg,noMessage: !successMsg});
+		
+	});
+
 	app.get('/contact', function (req, res) {
 		res.render('contactus');
 	});
@@ -177,9 +200,76 @@ module.exports = function (app) {
 		res.render('careers');
 	});
 
-	app.get('/cart', function (req, res) {
-		res.render('cart');
+	app.get('/add-to-cart/:id/:pdp/:quantityVals', function (req, res) {
+		var productId= req.params.id;
+		var pdpFlag = req.params.pdp;
+		var quantityCart = Number(req.params.quantityVals);
+		var cart =new ProductCart(req.session.cart ?req.session.cart:{} )
+		Product.findById(productId, function(err, product){
+			if(err) {
+			  // result, not request
+			  return res.redirect("/");
+			}
+			cart.add(product, product.id,quantityCart);
+			req.session.cart = cart;
+			if(pdpFlag=="true"){
+				res.redirect("/cart");
+			}
+			else{			
+			res.redirect("/");
+			}
+		//res.render('cart');
 	});
+});
+app.get('/cart', function (req, res) {
+		if(!req.session.cart)
+		{
+			return res.render('cart',{products:null});
+		}
+		var cart = new ProductCart(req.session.cart);
+		res.render('cart', {products: cart.generateProductsArray(),totalPrice: cart.totalPrice} );
+	});
+
+
+
+	app.get("/reduce/:id", function(req, res, next){
+		var productId = req.params.id;
+		var cart = new ProductCart(req.session.cart ? req.session.cart : {});
+	  
+		cart.reduceByOne(productId);
+		
+		// after reduce one, need to reassign cart into session.
+		req.session.cart = cart;
+		
+		// shopping-cart is where we have list of products
+		res.redirect("/cart");
+	  });
+
+	  app.get("/remove/:id", function(req, res, next){
+		var productId = req.params.id;
+		var cart = new ProductCart(req.session.cart ? req.session.cart : {});
+	  
+		cart.removeItem(productId);
+		
+		// after reduce one, need to reassign cart into session.
+		req.session.cart = cart;
+		
+		// shopping-cart is where we have list of products
+		res.redirect("/cart");
+	  });
+
+	  app.get("/increaseByOne/:id", function(req, res, next){
+		var productId = req.params.id;
+		var cart = new ProductCart(req.session.cart ? req.session.cart : {});
+	  
+		cart.increaseByOne(productId);
+		
+		// after reduce one, need to reassign cart into session.
+		req.session.cart = cart;
+		
+		// shopping-cart is where we have list of products
+		res.redirect("/cart");
+	  });
 
 	app.get('/payments', function (req, res) {
 		res.render('payments');
@@ -219,7 +309,7 @@ module.exports = function (app) {
 	});
 
 	app.get('/register', isLoggedOut,function (req, res) {
-		res.render('register');
+		res.render('register',{csrfToken: req.csrfToken()});
 	});
 
 	app.get('/login', isLoggedOut,function (req, res) {
@@ -229,12 +319,62 @@ module.exports = function (app) {
 		res.render('productDetails');
 	});	
 	app.get('/checkout', isLoggedIn,function (req, res) {
-		res.render('checkout');
+		if(!req.session.cart)
+		{
+			return res.render('cart',{products:null});
+		}
+		var cart = new ProductCart(req.session.cart);
+		var errMsg = req.flash("error")[0];
+		res.render('checkout', {products: cart.generateProductsArray(),totalPrice: cart.totalPrice,totalItems: cart.totalQty,errMsg: errMsg, noError: !errMsg , csrfToken: req.csrfToken()} );
 	});
+
+	app.post('/checkout',isLoggedIn, function (req, res) {
+		if(!req.session.cart)
+		{
+			return res.render('cart',{products:null});
+		}
+		var cart = new ProductCart(req.session.cart);
+
+		var stripe = require("stripe")("sk_test_tWsWzln21gDSilY96LAT5czA");
+			stripe.charges.create({
+			amount: cart.totalPrice * 100,
+			currency: "usd",
+			source: req.body.stripeToken, // obtained with Stripe.js
+			description: "Test BuyGadgets"
+			}, function(err, charge) {
+			  if(err){
+				  console.log(err);
+				  req.flash('error', err.message);
+				  return res.redirect('/checkout');
+			  }
+			  var order = new Order({
+				user: req.user,
+				cart: cart,
+				address: req.body.address,
+				name: req.body.username,
+				paymentId: charge.id
+			  });
+			  
+			  order.save(function(err, result){
+				if(err) {
+					console.log(err);
+			   return res.redirect('/checkout');
+			}
+			  req.flash('success','Product Succesfully purchased');
+			  req.session.cart = null;
+			  res.redirect('/orderConfirmation');
+			  });
+			
+			});
+		
+	});
+
+
+
+
 	app.get('/:pid/productDetails', function (req, res) {
 		var id = req.params.pid;
 		Product.findById(id,function(err,productLength){
-			console.log(productLength);
 			res.render('productDetails',{products: productLength,helpers: {
 				times: function (n, block) { var accum = '';
 				for(var i = 0; i < n; i++)
@@ -260,6 +400,44 @@ module.exports = function (app) {
 				popularProducts.push(productLength.slice(i, i+rowSize));
 			}
 			res.render('categoryLanding',{products: popularProducts})
+
+			
+		});
+	     
+	});
+	app.get('/categoryLanding/:category', function (req, res) {
+		var category = req.params.category;
+		if((category=="Laptop")||(category=="Mobile")||(category=="Tablet")||(category=="MobileCase")||(category=="HeadPhones")||(category=="powerBanks")||(category=="HardDisk")||(category=="Pendrive")||(category=="Keyboard"))
+		{
+			var breadcumb ="Products";
+
+		}else
+		{
+			var breadcumb ="Brands";
+		}
+		
+		Product.find({$or:[{Category:category},{Brand:category}]},function(err, productLength){
+			var popularProducts = [];
+			var rowSize = 3;
+			for(var i= 0; i <productLength.length; i+=rowSize){
+				popularProducts.push(productLength.slice(i, i+rowSize));
+			}
+			res.render('categoryLanding',{products: popularProducts,category:category,breadcumb:breadcumb,helpers: {
+				times: function (n, block) { var accum = '';
+				for(var i = 0; i < n; i++)
+					accum += block.fn(i);
+				return accum;},
+				ntimes: function (n, block) { var accum = '';
+				for(var i = 5; i > n; i--)
+					accum += block.fn(i);
+				return accum;},
+				carttimes: function (n, block) { var accum = '';
+				for(var i = 0; i <6; i++)
+					accum += block.fn(i);
+				return accum;},
+
+
+			}})
 
 			
 		});

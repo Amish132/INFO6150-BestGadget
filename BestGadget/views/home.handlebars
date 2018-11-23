@@ -35,7 +35,7 @@
 </div>
 <div class="container-fluid bg-light" style="padding-top:70px;padding-bottom:70px">
   <div class="section-heading">
-      <h2 class="section-title">Trending Products</h2>
+      <h2 class="section-title">Popular Products</h2>
     </div>
   {{# each products }}
   <div class="row">
@@ -44,7 +44,7 @@
       <div class="card text-center thumbnail ">
         <div class="card-content">
           <a href="/{{this.id}}/productDetails">
-          <img class="card-img-top img-fluid" src="{{ this.imagepath}}" alt="{{ this.title }}">
+          <img class="imagesize" src="{{ this.imagepath}}" alt="{{ this.title }}">
           </a>
           <div class="card-body">
             <h4 class="card-title">{{ this.title }}</h4>
@@ -62,7 +62,7 @@
             <p class="card-text">{{ this.description }}</p>
             <div class="btn-group" role="group" aria-label="Basic example">
               <span class="btn btn-outline-blue-grey">$ {{ this.price }}</span>
-              <button type="button" class="btn btn-outline-blue-grey">Buy now <i class="icon-cart3"></i></button>
+             <a href="/add-to-cart/{{this.id}}/false/1" class="btn btn-success"> Add to Cart<i class="fa fa-shopping-cart"></i></a>
             </div>
           </div>
         </div>
@@ -75,7 +75,7 @@
 <div class="container">
   <div class="row brand">
     <div class="section-heading">
-      <h2 class="section-title">Popular Brands</h2>
+      <h2 class="section-title">Trending Brands</h2>
     </div>
     <div class="col-md-12">
       <div id="brandCarousel" class="carousel slide" data-ride="carousel">
@@ -87,32 +87,32 @@
           <div class="carousel-item active">
             <div class="row">
               <div class="col-md-2 text-center">
-                <a href="#">
+                <a href="/categoryLanding/Bose">
                   <img src="images/brand/brand1.jpg" alt="Image" style="max-width:100%;">
                 </a>
               </div>
               <div class="col-md-2 text-center">
-                <a href="#">
+                <a href="/categoryLanding/Canon">
                   <img src="images/brand/brand2.jpg" alt="Image" style="max-width:100%;">
                 </a>
               </div>
               <div class="col-md-2 text-center">
-                <a href="#">
+                <a href="/categoryLanding/Espon">
                   <img src="images/brand/brand3.jpg" alt="Image" style="max-width:100%;">
                 </a>
               </div>
               <div class="col-md-2 text-center">
-                <a href="#">
+                <a href="/categoryLanding/Hp">
                   <img src="images/brand/brand4.jpg" alt="Image" style="max-width:100%;">
                 </a>
               </div>
               <div class="col-md-2 text-center">
-                <a href="#">
+                <a href="/categoryLanding/Insignia">
                   <img src="images/brand/brand5.jpg" alt="Image" style="max-width:100%;">
                 </a>
               </div>
               <div class="col-md-2 text-center">
-                <a href="#">
+                <a href="/categoryLanding/Lenovo">
                   <img src="images/brand/brand6.jpg" alt="Image" style="max-width:100%;">
                 </a>
               </div>
@@ -121,32 +121,32 @@
           <div class="carousel-item">
             <div class="row">
               <div class="col-md-2 text-center">
-                <a href="#">
+                <a href="/categoryLanding/LG">
                   <img src="images/brand/brand7.jpg" alt="Image" style="max-width:100%;">
                 </a>
               </div>
               <div class="col-md-2 text-center">
-                <a href="#">
+                <a href="/categoryLanding/Nikon">
                   <img src="images/brand/brand8.jpg" alt="Image" style="max-width:100%;">
                 </a>
               </div>
               <div class="col-md-2 text-center">
-                <a href="#">
+                <a href="/categoryLanding/Gopro">
                   <img src="images/brand/brand9.jpg" alt="Image" style="max-width:100%;">
                 </a>
               </div>
               <div class="col-md-2 text-center">
-                <a href="#">
+                <a href="/categoryLanding/Vizio">
                   <img src="images/brand/brand10.png" alt="Image" style="max-width:100%;">
                 </a>
               </div>
               <div class="col-md-2 text-center">
-                <a href="#">
+                <a href="/categoryLanding/Apple">
                   <img src="images/brand/brand11.jpg" alt="Image" style="max-width:100%;">
                 </a>
               </div>
               <div class="col-md-2 text-center">
-                <a href="#">
+                <a href="/categoryLanding/OnePlus">
                   <img src="images/brand/brand12.png" alt="Image" style="max-width:100%;">
                 </a>
               </div>
