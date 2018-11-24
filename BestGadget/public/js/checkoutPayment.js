@@ -2,7 +2,7 @@ Stripe.setPublishableKey('pk_test_a4yIrjj0VSJOUb6GMzxixnql');
 
 var $form = $("#checkoutpayment-form");
 $form.submit(function(event){
-  $form.find('button').prop("disabled", true);
+  //$form.find('button').prop("disabled", true);
 
   var number = $('#cc-number').val();
   var cvc = $('#cc-cvv').val();
@@ -25,7 +25,7 @@ function stripeResponseHandler(status, response) {
  
     $("#charge-error").text(response.error.message);
     $("#charge-error").removeClass('d-none');
-    $form.find("button").prop("disabled", true);
+    //$form.find("button").prop("disabled", true);
     
   }
   else {
