@@ -4,6 +4,11 @@
 	margin: 68px auto 40px;
 	text-align: center;
 }
+/*Setting the input in product details page*/
+.quantity-item {
+	display: none;
+  }
+  /*Setting the input in product details page*/
 .imagesize
 {
 	border-top-left-radius: calc(.25rem - 1px);
@@ -948,6 +953,10 @@ p.card-text:hover {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+>>>>>>> 2677fb9147fb36334dc85281f077bfcdd08613bf
   
   .jumbotron {
 	padding-top: 6rem;
@@ -990,7 +999,10 @@ p.card-text:hover {
   .card-text {
 	font-size: 85%;
   }
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 2677fb9147fb36334dc85281f077bfcdd08613bf
 
 /* shopping cart */
 .hero{
@@ -1122,4 +1134,8 @@ section {
     flex-direction: row !important;
 }
 }
+<<<<<<< HEAD
 >>>>>>> 9e63967b198790034e2709a45008c0c1e0d0a754
+=======
+
+>>>>>>> 2677fb9147fb36334dc85281f077bfcdd08613bf

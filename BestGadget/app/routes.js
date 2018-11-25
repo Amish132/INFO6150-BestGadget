@@ -200,17 +200,17 @@ module.exports = function (app) {
 		res.render('careers');
 	});
 
-	app.get('/add-to-cart/:id/:pdp', function (req, res) {
+	app.get('/add-to-cart/:id/:pdp/:quantityVals', function (req, res) {
 		var productId= req.params.id;
 		var pdpFlag = req.params.pdp;
-		console.log(pdpFlag);
+		var quantityCart = Number(req.params.quantityVals);
 		var cart =new ProductCart(req.session.cart ?req.session.cart:{} )
 		Product.findById(productId, function(err, product){
 			if(err) {
 			  // result, not request
 			  return res.redirect("/");
 			}
-			cart.add(product, product.id);
+			cart.add(product, product.id,quantityCart);
 			req.session.cart = cart;
 			if(pdpFlag=="true"){
 				res.redirect("/cart");
@@ -221,7 +221,7 @@ module.exports = function (app) {
 		//res.render('cart');
 	});
 });
-	app.get('/cart', function (req, res) {
+app.get('/cart', function (req, res) {
 		if(!req.session.cart)
 		{
 			return res.render('cart',{products:null});
