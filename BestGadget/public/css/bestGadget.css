@@ -764,6 +764,11 @@ img {
 	line-height: 1.5em;
 }
 
+.card .card-body{
+	flex: 1 1 auto;
+	padding:1.1px
+}
+
 @media screen and (min-width: 997px) {
 	.wrapper {
 		display: -webkit-box;
@@ -952,12 +957,6 @@ p.card-text:hover {
 	max-height: 150%;
 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
->>>>>>> 2677fb9147fb36334dc85281f077bfcdd08613bf
-  
   .jumbotron {
 	padding-top: 6rem;
 	padding-bottom: 6rem;
@@ -999,10 +998,6 @@ p.card-text:hover {
   .card-text {
 	font-size: 85%;
   }
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 2677fb9147fb36334dc85281f077bfcdd08613bf
 
 /* shopping cart */
 .hero{
@@ -1134,8 +1129,31 @@ section {
     flex-direction: row !important;
 }
 }
-<<<<<<< HEAD
->>>>>>> 9e63967b198790034e2709a45008c0c1e0d0a754
-=======
 
->>>>>>> 2677fb9147fb36334dc85281f077bfcdd08613bf
+#main_heading {
+	font-size: 50px;
+	line-height: 40px;
+	margin: 1em 0 .6em 0;
+	font-weight: normal;
+	color: white;
+	font-family: 'Hammersmith One', sans-serif;
+	text-shadow: 0 -1px 0 rgba(0,0,0,0.4);
+	position: relative;
+	color: #6Cf;
+	
+}
+
+.rating {
+	unicode-bidi: bidi-override;
+	direction: rtl;
+  }
+  .rating > span {
+	display: inline-block;
+	position: relative;
+	width: 1.1em;
+  }
+  .rating > span:hover:before,
+  .rating > span:hover ~ span:before {
+	 content: "\2605";
+	 position: absolute;
+  }

@@ -410,19 +410,72 @@ app.get('/cart', function (req, res) {
 		if((category=="Laptop")||(category=="Mobile")||(category=="Tablet")||(category=="MobileCase")||(category=="HeadPhones")||(category=="powerBanks")||(category=="HardDisk")||(category=="Pendrive")||(category=="Keyboard"))
 		{
 			var breadcumb ="Products";
-
+			if(category=="Laptop"){
+				var Background="/images/background/laptop_background.jpg";
+			}
+			else if(category=="Mobile"){
+				var Background="/images/background/mobile_background.png";
+			}
+			else if(category=="Tablet"){
+				var Background="/images/background/tablet_background.jpg";
+			}
+			else if(category=="MobileCase"){
+				var Background="/images/background/mobilecase_background.jpg";
+			}
+			else if(category=="HeadPhones"){
+				var Background="/images/background/headphone_background.jpg";
+			}
+			else if(category=="powerBanks"){
+				var Background="/images/background/powerbank_background.jpg";
+			}
+			else if(category=="HardDisk"){
+				var Background="/images/background/harddisk_background.jpg";
+			}
+			else if(category=="Pendrive"){
+				var Background="/images/background/pendrive_background.jpg";
+			}
+			else if(category=="Keyboard"){
+				var Background="/images/background/keyboard_background.jpg";
+			}
 		}else
 		{
 			var breadcumb ="Brands";
+			if(category=="Lenovo"){
+				var Background="/images/background/lenovo_background.jpg";
+			}
+			else if(category=="Oneplus"){
+				var Background="/images/background/oneplus_background.jpg";
+			}
+			else if(category=="Canon"){
+				var Background="/images/background/canon_background.jpg";
+			}
+			else if(category=="Apple"){
+				var Background="/images/background/apple_background.jpg";
+			}
+			else if(category=="Dell"){
+				var Background="/images/background/dell_background.jpg";
+			}
+			else if(category=="Bose"){
+				var Background="/images/background/bose_background.png";
+			}
+			else if(category=="LG"){
+				var Background="/images/background/lg_background.png";
+			}
+			else if(category=="Hp"){
+				var Background="/images/background/hp_background.jpg";
+			}
+
 		}
 		
 		Product.find({$or:[{Category:category},{Brand:category}]},function(err, productLength){
 			var popularProducts = [];
 			var rowSize = 3;
+			
 			for(var i= 0; i <productLength.length; i+=rowSize){
 				popularProducts.push(productLength.slice(i, i+rowSize));
 			}
-			res.render('categoryLanding',{products: popularProducts,category:category,breadcumb:breadcumb,helpers: {
+			
+			res.render('categoryLanding',{products: popularProducts,category:category,breadcumb:breadcumb, Background:Background ,helpers: {
 				times: function (n, block) { var accum = '';
 				for(var i = 0; i < n; i++)
 					accum += block.fn(i);

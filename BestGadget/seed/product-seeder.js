@@ -15,7 +15,7 @@ var products = [
     price: 600,
     productRating: 5,
 	Category:"Laptop",
-	Brand:"Dell"
+  Brand:"Dell",
   }),
 
   
