@@ -75,6 +75,8 @@ h3 {
 /** The Spacing **/
 .btn-breadcrumb .btn {
   padding:6px 12px 6px 24px;
+  background-color:black;
+  color: whitesmoke;
 }
 .btn-breadcrumb .btn:first-child {
   padding:6px 6px 6px 10px;
