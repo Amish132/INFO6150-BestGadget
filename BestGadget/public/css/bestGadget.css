@@ -764,6 +764,11 @@ img {
 	line-height: 1.5em;
 }
 
+.card .card-body{
+	flex: 1 1 auto;
+	padding:1.1px
+}
+
 @media screen and (min-width: 997px) {
 	.wrapper {
 		display: -webkit-box;
@@ -952,8 +957,6 @@ p.card-text:hover {
 	max-height: 150%;
 }
 
-
-  
   .jumbotron {
 	padding-top: 6rem;
 	padding-bottom: 6rem;
@@ -1127,3 +1130,30 @@ section {
 }
 }
 
+#main_heading {
+	font-size: 50px;
+	line-height: 40px;
+	margin: 1em 0 .6em 0;
+	font-weight: normal;
+	color: white;
+	font-family: 'Hammersmith One', sans-serif;
+	text-shadow: 0 -1px 0 rgba(0,0,0,0.4);
+	position: relative;
+	color: #6Cf;
+	
+}
+
+.rating {
+	unicode-bidi: bidi-override;
+	direction: rtl;
+  }
+  .rating > span {
+	display: inline-block;
+	position: relative;
+	width: 1.1em;
+  }
+  .rating > span:hover:before,
+  .rating > span:hover ~ span:before {
+	 content: "\2605";
+	 position: absolute;
+  }
