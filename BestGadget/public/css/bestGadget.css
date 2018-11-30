@@ -290,11 +290,7 @@ footer p {
 }
 
 
-/* category landing page css*/
-/*
-** Style Simple Ecommerce Theme for Bootstrap 4
-** Created by T-PHP https://t-php.fr/43-theme-ecommerce-bootstrap-4.html
-*/
+
 .bloc_left_price {
 	color: #c01508;
 	text-align: center;
@@ -1147,7 +1143,7 @@ section {
 
 .rating {
 	unicode-bidi: bidi-override;
-	direction: rtl;
+	/*direction: rtl;*/
   }
   .rating > span {
 	display: inline-block;
