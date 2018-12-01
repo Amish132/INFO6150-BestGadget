@@ -187,8 +187,14 @@ module.exports = function (app) {
 	});
 
 	app.get('/orderConfirmation', isLoggedIn,function (req, res) {
-		var successMsg = req.flash('success')[0];
-		res.render('orderConfirmation',{successMsg: successMsg,noMessage: !successMsg});
+
+		var id = req.query.id;
+		if(id == null || id == "" || id == undefined) {
+			res.redirect('/checkout');
+		} else {
+ 			var successMsg = req.flash('success')[0];
+			res.render('orderConfirmation',{successMsg: successMsg,noMessage: !successMsg});
+		}
 		
 	});
 
@@ -362,7 +368,7 @@ app.get('/cart', function (req, res) {
 			}
 			  req.flash('success','Product Succesfully purchased');
 			  req.session.cart = null;
-			  res.redirect('/orderConfirmation');
+			  res.redirect('/orderConfirmation?id=' +  charge.id);
 			  });
 			
 			});
