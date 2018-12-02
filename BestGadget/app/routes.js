@@ -215,6 +215,7 @@ module.exports = function (app) {
 			if(err) {
 			  // result, not request
 			  return res.redirect("/");
+	
 			}
 			cart.add(product, product.id,quantityCart);
 			req.session.cart = cart;

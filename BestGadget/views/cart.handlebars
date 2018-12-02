@@ -1,107 +1,110 @@
-
 <section class="hero">
-      <div class="container">
-        <div class="hero-content pb-5 text-center">
-          <h1 class="hero-heading">Shopping cart</h1>
-        </div>
+   <div class="container">
+      <div class="hero-content pb-5 text-center">
+         <h1 class="hero-heading">Shopping cart</h1>
       </div>
-    </section>
+   </div>
+</section>
 <section>
-{{# if products }}  
-<div class="container">
-        <div class="row mb-5"> 
-          <div class="col-lg-8">
+   {{# if products }}  
+   <div class="container">
+      <div class="row mb-5">
+         <div class="col-lg-8">
             <div class="cart">
-              <div class="cart-header text-center">
-                <div class="row">
-                  <div class="col-md-5">Item</div>
-                  <div class="col-md-7 d-none d-md-block">
-                    <div class="row">
-                      <div class="col-md-3">Price</div>
-                      <div class="col-md-4">Quantity</div>
-                      <div class="col-md-3">Total</div>
-                      <div class="col-md-2"></div>
-                    </div>
+               <div class="cart-header text-center">
+                  <div class="row">
+                     <div class="col-md-5">Item</div>
+                     <div class="col-md-7 d-none d-md-block">
+                        <div class="row">
+                           <div class="col-md-3">Price</div>
+                           <div class="col-md-4">Quantity</div>
+                           <div class="col-md-3">Total</div>
+                           <div class="col-md-2"></div>
+                        </div>
+                     </div>
                   </div>
-                </div>
-              </div>
-              {{# each products }}
-              <div class="cart-body">
-                <!-- Product-->
-                <div class="cart-item">
-                  <div class="row d-flex align-items-center text-left text-md-center">
-                    <div class="col-12 col-md-5"><a href="#" class="cart-remove close mt-3 d-md-none"><i class="fa fa-times"> </i></a>
-                      <div class="d-flex align-items-center"><a href="/{{ this.item._id }}/productDetails"><img src="{{ this.item.imagepath }}" alt="{{this.item.title }}" class="cart-item-img"></a>
-                        <div class="cart-title text-left"><a href="/{{ this.item._id }}/productDetails" class="text-uppercase text-dark"><strong>{{this.item.title }}</strong></a><br><span class="text-muted text-sm">Category: {{ this.item.Category }}</span><br><span class="text-muted text-sm"></span>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-12 col-md-7 mt-4 mt-md-0">
-                      <div class="row align-items-center">
-                        <div class="col-md-3">
-                          <div class="row">
-                            <div class="col-6 d-md-none text-muted">Price per item</div>
-                            <div class="col-6 col-md-12 text-right text-md-center">${{ this.item.price }}</div>
-                          </div>
-                        </div>
-                        <div class="col-md-4">
-                          <div class="row align-items-center">
-                            <div class="d-md-none col-7 col-sm-9 text-muted">Quantity</div>
-                            <div class="col-5 col-sm-3 col-md-12">
-                              <div class="d-flex align-items-center">
-                                  <a href="/reduce/{{ this.item._id }}">
-                                <div class="btn btn-items btn-items-decrease">-</div></a>
-                                <input type="text" value="{{this.qty}}" class="form-control text-center border-0 border-md input-items" disabled>
-                                <a href="/increaseByOne/{{ this.item._id }}"> <div class="btn btn-items btn-items-increase">+</div></a>
+               </div>
+               {{# each products }}
+               <div class="cart-body">
+                  <!-- Product-->
+                  <div class="cart-item">
+                     <div class="row d-flex align-items-center text-left text-md-center">
+                        <div class="col-12 col-md-5">
+                           <a href="#" class="cart-remove close mt-3 d-md-none"><i class="fa fa-times"> </i></a>
+                           <div class="d-flex align-items-center">
+                              <a href="/{{ this.item._id }}/productDetails"><img src="{{ this.item.imagepath }}" alt="{{this.item.title }}" class="cart-item-img"></a>
+                              <div class="cart-title text-left"><a href="/{{ this.item._id }}/productDetails" class="text-uppercase text-dark"><strong>{{this.item.title }}</strong></a><br><span class="text-muted text-sm">Category: {{ this.item.Category }}</span><br><span class="text-muted text-sm"></span>
                               </div>
-                            </div>
-                          </div>
+                           </div>
                         </div>
-                        <div class="col-md-3"> 
-                          <div class="row">
-                            <div class="col-6 d-md-none text-muted">Total price </div>
-                            <div class="col-6 col-md-12 text-right text-md-center"> ${{ this.price }}</div>
-                          </div>
+                        <div class="col-12 col-md-7 mt-4 mt-md-0">
+                           <div class="row align-items-center">
+                              <div class="col-md-3">
+                                 <div class="row">
+                                    <div class="col-6 d-md-none text-muted">Price per item</div>
+                                    <div class="col-6 col-md-12 text-right text-md-center">${{ this.item.price }}</div>
+                                 </div>
+                              </div>
+                              <div class="col-md-4">
+                                 <div class="row align-items-center">
+                                    <div class="d-md-none col-7 col-sm-9 text-muted">Quantity</div>
+                                    <div class="col-5 col-sm-3 col-md-12">
+                                       <div class="d-flex align-items-center">
+                                          <a href="/reduce/{{ this.item._id }}">
+                                             <div class="btn btn-items btn-items-decrease">-</div>
+                                          </a>
+                                          <input type="text" value="{{this.qty}}" class="form-control text-center border-0 border-md input-items" disabled>
+                                          <a href="/increaseByOne/{{ this.item._id }}">
+                                             <div class="btn btn-items btn-items-increase">+</div>
+                                          </a>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="col-md-3">
+                                 <div class="row">
+                                    <div class="col-6 d-md-none text-muted">Total price </div>
+                                    <div class="col-6 col-md-12 text-right text-md-center"> ${{ this.price }}</div>
+                                 </div>
+                              </div>
+                              <div class="col-2 d-none d-md-block text-center"><a href="/remove/{{ this.item._id }}" class="cart-remove"> <i class="delete fa fa-times"></i></a></div>
+                           </div>
                         </div>
-                        <div class="col-2 d-none d-md-block text-center"><a href="/remove/{{ this.item._id }}" class="cart-remove"> <i class="delete fa fa-times"></i></a></div>
-                      </div>
-                    </div>
+                     </div>
                   </div>
-                </div>
-               
-              </div>
-              {{/each}} 
+               </div>
+               {{/each}} 
             </div>
             <div class="my-5 d-flex justify-content-between flex-column flex-lg-row"><a href="/" class="btn btn-link text-muted"><i class="fa fa-chevron-left"></i> Continue Shopping</a><a href="/checkout" class="btn btn-success">Proceed to checkout <i class="fa fa-chevron-right"></i>                                                     </a></div>
-          </div>
-          <div class="col-lg-4">
+         </div>
+         <div class="col-lg-4">
             <div class="block mb-5">
-              <div class="block-header">
-                <h6 class="text-uppercase mb-0">Order Summary</h6>
-              </div>
-              <div class="block-body bg-light pt-1">
-                <p class="text-sm">Shipping and additional costs are calculated based on values you have entered.</p>
-                <ul class="order-summary mb-0 list-unstyled">
-                  <li class="order-summary-item"><span>Order Subtotal </span><span>${{this.totalPrice}}</span></li>
-                  <li class="order-summary-item"><span>Shipping and handling</span><span>$0.00</span></li>
-                  <li class="order-summary-item"><span>Tax</span><span>$0.00</span></li>
-                  <li class="order-summary-item border-0"><span>Total</span><strong class="order-summary-total">${{this.totalPrice}}</strong></li>
-                </ul>
-              </div>
+               <div class="block-header">
+                  <h6 class="text-uppercase mb-0">Order Summary</h6>
+               </div>
+               <div class="block-body bg-light pt-1">
+                  <p class="text-sm">Shipping and additional costs are calculated based on values you have entered.</p>
+                  <ul class="order-summary mb-0 list-unstyled">
+                     <li class="order-summary-item"><span>Order Subtotal </span><span>${{this.totalPrice}}</span></li>
+                     <li class="order-summary-item"><span>Shipping and handling</span><span>$0.00</span></li>
+                     <li class="order-summary-item"><span>Tax</span><span>$0.00</span></li>
+                     <li class="order-summary-item border-0"><span>Total</span><strong class="order-summary-total">${{this.totalPrice}}</strong></li>
+                  </ul>
+               </div>
             </div>
-          </div>
-        </div>
+         </div>
       </div>
-	  </section>
-    {{ else }}
-  <div class="container">
-
-<div class="jumbotron jumbotron-fluid">
-<p class="jumbo" >Your shopping cart is empty. If you see something you would like to 
-  add to your shopping cart when shopping, click Add to Bag.</p>
-<p class="jumbo" >If you submitted an order, you will receive an email confirmation. 
-  For immediate assistance, contact Customer Service.</p>
+   </div>
+</section>
+{{ else }}
+<div class="container">
+   <div class="jumbotron jumbotron-fluid">
+      <p class="jumbo" >Your shopping cart is empty. If you see something you would like to 
+         add to your shopping cart when shopping, click Add to Bag.
+      </p>
+      <p class="jumbo" >If you submitted an order, you will receive an email confirmation. 
+         For immediate assistance, contact Customer Service.
+      </p>
+   </div>
 </div>
-
-</div>
-    {{/if }}
+{{/if }}
