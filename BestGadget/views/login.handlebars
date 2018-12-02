@@ -1,44 +1,40 @@
 <body style="background-image: url('images/background/final_cb_0086-45553ade.jpg'); background-size: cover">
-    <div class="container">
-        <div class="row">
-          <div class="col-lg-10 col-xl-9 mx-auto">
+   <div class="container">
+      <div class="row">
+         <div class="col-lg-10 col-xl-9 mx-auto">
             <div class="card card-signin flex-row my-5">
-             <div class="card-img-left d-none d-md-flex">
-                
-              </div>
-              <div class="card-body">
-                <h5 class="card-title text-center">Sign In</h5>
-                {{#if success_msg}}
-                    <div class="alert alert-success">{{success_msg}}</div>
-                {{/if}}
-
-                {{#if error_msg}}
-                    <div class="alert alert-danger">{{error_msg}}</div>
-                {{/if}}
-
-                {{#if error}}
-                    <div class="alert alert-danger">{{error}}</div>
-                {{/if}}
-                <form class="form-signin" method="POST" action="login">
-             
-                  <div class="form-label-group">
-                      <input type="text" id="inputUserame" class="form-control" placeholder="Username" name="username"  autofocus>
-                      <label for="inputUserame">Username</label>
-                  </div>
-                  <div class="form-label-group">
-                    <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="password" >
-                    <label for="inputPassword">Password</label>
-                  </div>
-                  <input type="hidden" name="_csrf" value="{{ csrfToken }}">
-                  <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Sign In</button>
-                  <a class="d-block text-center mt-2 small" href="/register" id="swagath">Register</a>
-                  <hr class="my-4">
-                  <button class="btn btn-lg btn-twitter btn-block text-uppercase" type="submit"><i class="fa fa-twitter mr-2"></i>Follow Us On Twitter</button>
-                  <button class="btn btn-lg btn-pinterest btn-block text-uppercase" type="submit"><i class="fa fa-pinterest mr-2"></i>Follow us on Pintrest</button>
-                </form>
-              </div>
+               <div class="card-img-left d-none d-md-flex">
+               </div>
+               <div class="card-body">
+                  <h5 class="card-title text-center">Sign In</h5>
+                  {{#if success_msg}}
+                  <div class="alert alert-success">{{success_msg}}</div>
+                  {{/if}}
+                  {{#if error_msg}}
+                  <div class="alert alert-danger">{{error_msg}}</div>
+                  {{/if}}
+                  {{#if error}}
+                  <div class="alert alert-danger">{{error}}</div>
+                  {{/if}}
+                  <form class="form-signin" method="POST" action="login">
+                     <div class="form-label-group">
+                        <input type="text" id="inputUserame" class="form-control" placeholder="Username" name="username"  autofocus>
+                        <label for="inputUserame">Username</label>
+                     </div>
+                     <div class="form-label-group">
+                        <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="password" >
+                        <label for="inputPassword">Password</label>
+                     </div>
+                     <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+                     <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Sign In</button>
+                     <a class="d-block text-center mt-2 small" href="/register" id="swagath">Register</a>
+                     <hr class="my-4">
+                     <button class="btn btn-lg btn-twitter btn-block text-uppercase" type="submit"><i class="fa fa-twitter mr-2"></i>Follow Us On Twitter</button>
+                     <button class="btn btn-lg btn-pinterest btn-block text-uppercase" type="submit"><i class="fa fa-pinterest mr-2"></i>Follow us on Pintrest</button>
+                  </form>
+               </div>
             </div>
-          </div>
-        </div>
+         </div>
       </div>
+   </div>
 </body>

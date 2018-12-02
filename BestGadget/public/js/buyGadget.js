@@ -1,11 +1,7 @@
 $(document).ready(function () {
-	// executes when HTML-Document is loaded and DOM is ready
-	// breakpoint and up  
-	// when you hover a toggle show its dropdown menu
 	faqTrigger = $('.cd-faq-trigger');
 	faqTrigger.on('click', function (event) {
 		event.preventDefault();
-		//$(this).next('.cd-faq-content').slideToggle(200).end().parent('li').toggleClass('content-visible');
 		$(this).next('.cd-faq-content').slideToggle(200).toggleClass('content-visible');
 
 	});
@@ -18,8 +14,6 @@ $(document).ready(function () {
 		$(this).parent().addClass("show");
 		$(this).parent().find(".dropdown-menu").addClass("show");
 	});
-
-	// hide the menu when the mouse leaves the dropdown
 	$(".navbar .dropdown-menu").mouseleave(function () {
 		$(this).removeClass("show");
     });
@@ -99,7 +93,7 @@ $(document).ready(function () {
 	});
 
 
-	// document ready  
+	
 });
 function myFunction(productId){
 	var prodId = productId; 
@@ -113,8 +107,5 @@ function myFunction(productId){
 	{
 	var url = 'http://localhost:8080/add-to-cart/' +prodId+ '/true/' +quantityVal;  
 	window.location.href =  url;           
-	//var url = '@baseAddress' + '/location/details/' + val;
-
-	//window.location = url;
 	}
 }
