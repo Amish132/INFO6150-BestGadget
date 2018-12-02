@@ -206,11 +206,16 @@ module.exports = function (app) {
 	});
 	var rand, mailOptions, host, link;
 
+	app.get('/orderConfirmation', isLoggedIn,function (req, res) {
 
-	app.get('/orderConfirmation', isLoggedIn, function (req, res) {
-		var successMsg = req.flash('success')[0];
-		res.render('orderConfirmation', { successMsg: successMsg, noMessage: !successMsg });
-
+		var id = req.query.id;
+		if(id == null || id == "" || id == undefined) {
+			res.redirect('/checkout');
+		} else {
+ 			var successMsg = req.flash('success')[0];
+			res.render('orderConfirmation',{successMsg: successMsg,noMessage: !successMsg});
+		}
+		
 	});
 
 	app.get('/contact', function (req, res) {
@@ -225,11 +230,12 @@ module.exports = function (app) {
 		var productId = req.params.id;
 		var pdpFlag = req.params.pdp;
 		var quantityCart = Number(req.params.quantityVals);
-		var cart = new ProductCart(req.session.cart ? req.session.cart : {})
-		Product.findById(productId, function (err, product) {
-			if (err) {
-				// result, not request
-				return res.redirect("/");
+		var cart =new ProductCart(req.session.cart ?req.session.cart:{} )
+		Product.findById(productId, function(err, product){
+			if(err) {
+			  // result, not request
+			  return res.redirect("/");
+	
 			}
 			cart.add(product, product.id, quantityCart);
 			req.session.cart = cart;
@@ -379,7 +385,9 @@ module.exports = function (app) {
 					return res.redirect('/checkout');
 				}
 				req.flash('success', 'Product Succesfully purchased');
-
+				req.session.cart = null;
+			  res.redirect('/orderConfirmation?id=' +  charge.id);
+			  
 				rand = Math.floor((Math.random() * 100) + 54);
 				host = req.get('host');
 				link = "http://" + req.get('host') + "/verify?id=" + rand;

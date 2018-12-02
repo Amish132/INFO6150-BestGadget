@@ -42,9 +42,7 @@ module.exports=function productCart(oldCart){
     this.totalQty++;
     this.totalPrice += this.items[id].item.price;
     
-   /* if(this.items[id].qty <= 0) {
-      delete this.items[id];
-    }*/
+  
   }
   
   this.removeItem = function(id) {    
