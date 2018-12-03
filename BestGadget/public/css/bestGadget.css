@@ -491,6 +491,11 @@ a:visited {
 	border-top-right-radius: 2em;
 }
 
+:root {
+	--input-padding-x: 1.5rem;
+	--input-padding-y: .75rem;
+}
+
 .card-signin {
 	border: 0;
 	border-radius: 1rem;
@@ -521,7 +526,7 @@ a:visited {
 .form-signin .btn {
 	font-size: 80%;
 	border-radius: 5rem;
-	letter-spacing: 0.1rem;
+	letter-spacing: .1rem;
 	font-weight: bold;
 	padding: 1rem;
 	transition: all 0.2s;
@@ -536,6 +541,11 @@ a:visited {
 	border-radius: 2rem;
 }
 
+.form-label-group>input,
+.form-label-group>label {
+	padding: var(--input-padding-y) var(--input-padding-x);
+}
+
 .form-label-group>label {
 	position: absolute;
 	top: 0;
@@ -543,11 +553,12 @@ a:visited {
 	display: block;
 	width: 100%;
 	margin-bottom: 0;
+	/* Override default `<label>` margin */
 	line-height: 1.5;
 	color: #495057;
-	border: transparent solid 1px;
-	border-radius: 0.25rem;
-	transition: all 0.1s ease-in-out;
+	border: 1px solid transparent;
+	border-radius: .25rem;
+	transition: all .1s ease-in-out;
 }
 
 .form-label-group input::-webkit-input-placeholder {
@@ -570,7 +581,14 @@ a:visited {
 	color: transparent;
 }
 
+.form-label-group input:not(:placeholder-shown) {
+	padding-top: calc(var(--input-padding-y) + var(--input-padding-y) * (2 / 3));
+	padding-bottom: calc(var(--input-padding-y) / 3);
+}
+
 .form-label-group input:not(:placeholder-shown)~label {
+	padding-top: calc(var(--input-padding-y) / 3);
+	padding-bottom: calc(var(--input-padding-y) / 3);
 	font-size: 12px;
 	color: #777;
 }
@@ -578,11 +596,6 @@ a:visited {
 .btn-google {
 	color: white;
 	background-color: #ea4335;
-}
-
-.btn-facebook {
-	color: white;
-	background-color: #3b5998;
 }
 
 .btn-twitter {
