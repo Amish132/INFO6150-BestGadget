@@ -396,8 +396,8 @@ module.exports = function (app) {
 					subject: "Your Order with BuyGadgets has been placed!",
 					html: "Hello,<br> Your order has been placed with us and its currently being processed. Thank you for placing your order with us!<br>" +
 						"<h3>Here is the summary of your order:</h3><br> " +
-						"<ul><li><b>Your order total is: </b>USD" + cart.totalPrice * 100 + "</li>" +
-						"<li><b>The product will be delivered at: </b>" + req.body.address + " "+req.body.address2+ "</li>" +
+						"<ul><li><b>Your order total is: </b>USD " + cart.totalPrice * 100 + "</li>" +
+						"<li><b>The payment ID for the order is: </b>" + charge.id +"</li>" +
 						"</ul>"
 				}
 				console.log(mailOptions);
@@ -411,8 +411,6 @@ module.exports = function (app) {
 					}
 				});
 
-				req.session.cart = null;
-				res.redirect('/orderConfirmation');
 			});
 
 		});
