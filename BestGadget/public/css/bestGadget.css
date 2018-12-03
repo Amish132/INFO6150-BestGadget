@@ -596,8 +596,12 @@ a:visited {
 .btn-google {
 	color: white;
 	background-color: #ea4335;
-}
-
+  }
+  
+  .btn-facebook {
+	color: white;
+	background-color: #3b5998;
+  }
 .btn-twitter {
 	color: white;
 	background-color: #55ACEE;
