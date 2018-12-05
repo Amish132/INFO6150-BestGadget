@@ -11,6 +11,7 @@
          </div>
       </div>
    </div>
+   {{# if products }}  
    <div class="container">
       <div class="col">
          {{# each products }}
@@ -22,7 +23,7 @@
                   <img class=" categoryLanding mx-auto" src="/{{ this.imagepath}}" alt="{{ this.title }}">
                   </a>
                   <div class="card-body">
-                     <h6 class="card-title"><a href="product.html" title="{{ this.title }}">{{ this.title }}</a></h6>
+                     <h6 class="card-title"><a href="/{{this.id}}/productDetails" title="{{ this.title }}">{{ this.title }}</a></h6>
                      <div class="stars">
                         {{#times this.productRating}}
                         <span class="fa fa-star checked"></span>
@@ -48,4 +49,14 @@
          {{/each}}
       </div>
    </div>
+   {{ else }}
+   <div class="container">
+      <div class="hero-content pb-5 text-center">
+         <h1 class="hero-heading">Sorry...<i class="em em-anguished"></i></h1>
+         <div id="success" class="alert alert-info">
+          <p class="text-center"> Products Shortly Coming..</p>
+      </div>
+   </div>
+   </div>
+   {{/if }}
 </body>

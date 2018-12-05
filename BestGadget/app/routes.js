@@ -136,10 +136,10 @@ module.exports = function (app) {
 	// frontend routes =========================================================
 	// route to handle all angular requests
 	app.get('/', function (req, res) {
-		Product.find({ productRating: { $gte: 4 } }, function (err, productLength) {
+		Product.find({ productRating: { $eq: 5 } }, function (err, productLength) {
 			var popularProducts = [];
 			var rowSize = 3;
-			for (var i = 0; i < 6; i += rowSize) {
+			for (var i = 0; i < productLength.length ; i += rowSize) {
 				popularProducts.push(productLength.slice(i, i + rowSize));
 			}
 
