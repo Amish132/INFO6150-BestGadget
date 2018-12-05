@@ -24,7 +24,7 @@ var products = [
     title: "Apple MacBook Pro",
     description: "Core i7 7th Gen - (16 GB/512 GB SSD/Mac OS Sierra/2 GB Graphics) MPTT2HN/A  (15.4 inch, SPace Grey, 1.83 kg) 8GB/128GB SSD",
     price: 1749,
-    productRating: 4,
+    productRating: 5,
 	Category:"Laptop",
 	Brand:"Apple"
   }),
@@ -35,7 +35,7 @@ var products = [
     title: "Apple iPhone X ",
     description: "Meet the iPhone X - the device that’s so smart that it responds to a tap, your voice, and even a glance. Elegantly designed with a large 14.73 cm (5.8) Super Retina screen and a durable front-and-back glass, this smartphone is designed to impress. What’s more, you can charge this iPhone wirelessly.",
     price: 459,
-    productRating: 3,
+    productRating: 5,
 	Category:"Mobile",
 	Brand:"Apple"
   }),
@@ -46,7 +46,7 @@ var products = [
     title: "Lenovo K8",
     description: "(Venom Black, 64 GB)  (4 GB RAM)The Lenovo K8 Note is the most power KillerNote ever. Experience a new level of performance with a 10-core processor plus up to 4GB of RAM and 64GB of storage. K8 Note comes with 2 parallel rear cameras with 13MP and 5MP depth sensors to capture DSLR-like depth of field effect. Take amazing selfies with high resolution 13MP front camera with party flash. Enjoy an immersive multimedia experience with 13.97cm (5.5) Full HD Display with Dolby Atmos support. K8 Note ships with the stock Android 7.1.1 Nougat for a smooth and responsive experience.",
     price: 369,
-    productRating: 3,
+    productRating: 5,
 	Category:"Mobile",
 	Brand:"Lenovo"
   }),
@@ -57,7 +57,7 @@ var products = [
     title: "Canon HD 8 Tablet ",
     description: " 8 HD Display, 16 GB, Black - with Special OffersUp to 10 hours of battery life, a vibrant 8 HD display, a 1.3 GHz quad-core processor, 1.5 GB of RAM, and Dolby Audio.16 or 32 GB of internal storage and a microSD slot for up to 400 GB of expandable storage",
     price: 350,
-    productRating: 4,
+    productRating: 5,
 	Category:"Tablet",
 	Brand:"Canon "
   }),
@@ -152,7 +152,7 @@ var products = [
     title: "Dell 16GB m3.0",
     description: "Dell 16GB m3.0 16 GB OTG Drive  (Silver, Grey, Type A to Lightning)USB 3.0|16 GB Plastic For Laptop, Audio Player, Gaming Console, Tablet, Desktop Computer, Mobile, Netbook Color:Silver, Grey",
     price: 12,
-    productRating: 4,
+    productRating: 3,
 	Category:"Pendrive",
 	Brand:"Dell"
   }),
@@ -161,7 +161,7 @@ var products = [
     title: "Canon 16GB m3.0",
     description: "Canon iXpand Mini Flash Drive 32 GB Pen Drive  (Grey)USB 3.0|16 GB Plastic For Laptop, Audio Player, Gaming Console, Tablet, Desktop Computer, Mobile, Netbook Color:Silver, Grey",
     price: 16,
-    productRating: 4,
+    productRating: 2,
 	Category:"Pendrive",
 	Brand:"Canon"
   }),
@@ -170,7 +170,7 @@ var products = [
     title: "Canon 16GB m3.0",
     description: "Electrobot Ultra Thin 2.4GHz Wireless Keyboard + Cover and Wireless Mouse Kit for Desktop Laptop Wireless Multi-device Keyboard  (White)Specification:- 1.Material: ABS, 2.Color: White, 3.Keyboard battery: 2 X AAA batteries(battery not included), 4.Mouse battery: 1 X AAA batteries(battery not included), 5.Wireless carrier frequency: 2400-2480MHZ, 6.Wireless channel: 32 (automatic hopping), 7.Rated operational voltage: 1.5V, 8.Max acceleration: 14" ,
     price: 21,
-    productRating: 4,
+    productRating: 1,
 	Category:"Keyboard",
 	Brand:"Lenovo"
   }),
@@ -179,10 +179,47 @@ var products = [
     title: "Canon 16GB m3.0",
     description: "lenovo Premium Series Flexible Foldable Wired USB Laptop Keyboard  (Black)secification:- 1.Material: ABS, 2.Color: White, 3.Keyboard battery: 2 X AAA batteries(battery not included), 4.Mouse battery: 1 X AAA batteries(battery not included), 5.Wireless carrier frequency: 2400-2480MHZ, 6.Wireless channel: 32 (automatic hopping)",
     price: 22,
-    productRating: 4,
+    productRating: 3,
 	Category:"Keyboard",
 	Brand:"Oneplus"
+  }),
+  new ProductBuyGadgets({
+    imagepath: "images/productImages/lgMobile.jpeg",
+    title: "Lg G6",
+    description: "lg Premium Series Flexible Foldable Wired USB Laptop Keyboard  (Black)secification:- 1.Material: ABS, 2.Color: White, 3.Keyboard battery: 2 X AAA batteries(battery not included), 4.Mouse battery: 1 X AAA batteries(battery not included), 5.Wireless carrier frequency: 2400-2480MHZ, 6.Wireless channel: 32 (automatic hopping)",
+    price: 23,
+    productRating: 3,
+	Category:"Mobile",
+	Brand:"LG"
+  }),
+   new ProductBuyGadgets({
+    imagepath: "images/productImages/lgMobile2.jpeg",
+    title: "Lg Full Vision",
+    description: "lg Premium Series Flexible Foldable Wired USB Laptop Keyboard  (Black)secification:- 1.Material: ABS, 2.Color: White, 3.Keyboard battery: 2 X AAA batteries(battery not included), 4.Mouse battery: 1 X AAA batteries(battery not included), 5.Wireless carrier frequency: 2400-2480MHZ, 6.Wireless channel: 32 (automatic hopping)",
+    price: 30,
+    productRating: 4,
+	Category:"Mobile",
+	Brand:"LG"
+  }),
+  new ProductBuyGadgets({
+    imagepath: "images/productImages/HpLaptop1.jpeg",
+    title: "HP I7",
+    description: "HP Premium Series Flexible Foldable Wired USB Laptop Keyboard  (Black)secification:- 1.Material: ABS, 2.Color: White, 3.Keyboard battery: 2 X AAA batteries(battery not included), 4.Mouse battery: 1 X AAA batteries(battery not included), 5.Wireless carrier frequency: 2400-2480MHZ, 6.Wireless channel: 32 (automatic hopping)",
+    price: 400,
+    productRating: 4,
+	Category:"Laptop",
+	Brand:"Hp"
+  }),
+  new ProductBuyGadgets({
+    imagepath: "images/productImages/HpLaptop2.jpeg",
+    title: "HP I5",
+    description: "HP Premium Series Flexible Foldable Wired USB Laptop Keyboard  (Black)secification:- 1.Material: ABS, 2.Color: White, 3.Keyboard battery: 2 X AAA batteries(battery not included), 4.Mouse battery: 1 X AAA batteries(battery not included), 5.Wireless carrier frequency: 2400-2480MHZ, 6.Wireless channel: 32 (automatic hopping)",
+    price: 300,
+    productRating: 5,
+	Category:"Laptop",
+	Brand:"Hp"
   })
+
   
   
 ];
