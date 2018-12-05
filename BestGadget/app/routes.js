@@ -5,8 +5,6 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var User = require('./models/buygadgets');
 var Product = require('./models/proudct');
-var csrf = require('csurf');
-var csrfProtection = csrf();
 var ProductCart = require('./models/ProductCart');
 var Order = require('./models/order');
 var nodemailer = require("nodemailer");
@@ -18,7 +16,6 @@ module.exports = function (app) {
 	// authentication routes
 
 	// sample api route
-	app.use(csrfProtection);
 	app.post('/register', function (req, res) {
 		var email = req.body.email;
 		var username = req.body.username;
@@ -335,11 +332,11 @@ module.exports = function (app) {
 	});
 
 	app.get('/register', isLoggedOut, function (req, res) {
-		res.render('register', { csrfToken: req.csrfToken() });
+		res.render('register');
 	});
 
 	app.get('/login', isLoggedOut, function (req, res) {
-		res.render('login', { csrfToken: req.csrfToken() });
+		res.render('login');
 	});
 	app.get('/productDetails', function (req, res) {
 		res.render('productDetails');
