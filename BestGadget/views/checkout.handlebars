@@ -1,3 +1,4 @@
+<body style="background-color: lightgray">
 {{#if user}}
 <div class="container">
   <div class="py-5 text-center">
@@ -111,11 +112,6 @@
           </div>
         </div>
         <hr class="mb-4">
-        <div class="custom-control custom-checkbox">
-          <input type="checkbox" class="custom-control-input" id="same-address">
-          <label class="custom-control-label" for="same-address">Shipping address is the same as my billing address</label>
-        </div>
-        <hr class="mb-4">
 
         <h4 class="mb-3">Payment</h4>
 
@@ -173,7 +169,7 @@
 
 </div>
 {{/if}}
-
+</body>
 <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
 <script type="text/javascript" src="/js/orderConfirmation.js"></script>
 <script type="text/javascript" src="/js/checkoutPayment.js"></script>
