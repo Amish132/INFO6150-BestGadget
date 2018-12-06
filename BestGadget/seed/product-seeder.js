@@ -4,7 +4,9 @@ var ProductBuyGadgets = require('../app/models/proudct');
 var mongoose = require('mongoose');
 
 // connect
-mongoose.connect('mongodb://localhost/buygadgetsapp', { useNewUrlParser: true});
+var db = require('../config/database')
+
+mongoose.connect(db.mongoURI, { useNewUrlParser: true });
 
 // arr
 var products = [
