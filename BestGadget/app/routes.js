@@ -347,7 +347,7 @@ module.exports = function (app) {
 		}
 		var cart = new ProductCart(req.session.cart);
 		var errMsg = req.flash("error")[0];
-		res.render('checkout', { products: cart.generateProductsArray(), totalPrice: cart.totalPrice, totalItems: cart.totalQty, errMsg: errMsg, noError: !errMsg, csrfToken: req.csrfToken() });
+		res.render('checkout', { products: cart.generateProductsArray(), totalPrice: cart.totalPrice, totalItems: cart.totalQty, errMsg: errMsg, noError: !errMsg});
 	});
 
 	app.post('/checkout', isLoggedIn, function (req, res) {
