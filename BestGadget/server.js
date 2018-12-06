@@ -17,9 +17,12 @@ var LocalStrategy = require('passport-local').Strategy;
 var MongoStoreSession = require('connect-mongo')(session);
 
 
-// configuration ===========================================
 
-mongoose.connect('mongodb://localhost/buygadgetsapp', { useNewUrlParser: true });
+// configuration ===========================================
+//DB configuration import
+var db = require('./config/database')
+
+mongoose.connect(db.mongoURI, { useNewUrlParser: true });
 var db = mongoose.connection;
 
 // set port
