@@ -1,6 +1,5 @@
 // app/routes.js
 process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 0;
-// grab the nerd model we just created
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var User = require('./models/buygadgets');
@@ -10,19 +9,11 @@ var Order = require('./models/order');
 var nodemailer = require("nodemailer");
 
 module.exports = function (app) {
-
-	// server routes ===========================================================
-	// handle things like api calls
-	// authentication routes
-
-	// sample api route
 	app.post('/register', function (req, res) {
 		var email = req.body.email;
 		var username = req.body.username;
 		var password = req.body.password;
 		var confirmpassword = req.body.confirmpassword;
-
-		// Validation
 		req.checkBody('email', 'Email is required').notEmpty();
 		req.checkBody('email', 'Email is not valid').isEmail();
 		req.checkBody('username', 'Username is required').notEmpty();
@@ -37,7 +28,6 @@ module.exports = function (app) {
 			});
 		}
 		else {
-			//checking for email and username are already taken
 			User.findOne({
 				username: {
 					"$regex": "^" + username + "\\b", "$options": "i"
@@ -124,14 +114,6 @@ module.exports = function (app) {
 		res.redirect('/');
 	});
 
-
-
-
-	// route to handle creating goes here (app.post)
-	// route to handle delete goes here (app.delete)
-
-	// frontend routes =========================================================
-	// route to handle all angular requests
 	app.get('/', function (req, res) {
 		Product.find({ productRating: { $eq: 5 } }, function (err, productLength) {
 			var popularProducts = [];
@@ -230,7 +212,6 @@ module.exports = function (app) {
 		var cart =new ProductCart(req.session.cart ?req.session.cart:{} )
 		Product.findById(productId, function(err, product){
 			if(err) {
-			  // result, not request
 			  return res.redirect("/");
 	
 			}
@@ -242,7 +223,6 @@ module.exports = function (app) {
 			else {
 				res.redirect("/");
 			}
-			//res.render('cart');
 		});
 	});
 	app.get('/cart', function (req, res) {
@@ -261,10 +241,7 @@ module.exports = function (app) {
 
 		cart.reduceByOne(productId);
 
-		// after reduce one, need to reassign cart into session.
 		req.session.cart = cart;
-
-		// shopping-cart is where we have list of products
 		res.redirect("/cart");
 	});
 
@@ -273,11 +250,7 @@ module.exports = function (app) {
 		var cart = new ProductCart(req.session.cart ? req.session.cart : {});
 
 		cart.removeItem(productId);
-
-		// after reduce one, need to reassign cart into session.
 		req.session.cart = cart;
-
-		// shopping-cart is where we have list of products
 		res.redirect("/cart");
 	});
 
@@ -287,10 +260,7 @@ module.exports = function (app) {
 
 		cart.increaseByOne(productId);
 
-		// after reduce one, need to reassign cart into session.
 		req.session.cart = cart;
-
-		// shopping-cart is where we have list of products
 		res.redirect("/cart");
 	});
 
@@ -360,7 +330,7 @@ module.exports = function (app) {
 		stripe.charges.create({
 			amount: cart.totalPrice * 100,
 			currency: "usd",
-			source: req.body.stripeToken, // obtained with Stripe.js
+			source: req.body.stripeToken, 
 			description: "Test BuyGadgets"
 		}, function (err, charge) {
 			if (err) {
