@@ -23,7 +23,7 @@ Deployed application to Heroku URL:https://sheltered-castle-69385.herokuapp.com/
 > #### Versioning
 
 We used git as version control software.
-Repsoitory link: https://github.com/saiswagath/INFO6150-BestGadget
+Repository link: https://github.com/saiswagath/INFO6150-BestGadget
 
 > #### Authors
 
