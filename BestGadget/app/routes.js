@@ -107,6 +107,7 @@ module.exports = function (app) {
 		});
 
 	app.get('/logout', function (req, res) {
+		req.session.cart = null;
 		req.logout();
 
 		req.flash('success_msg', 'You are logged out');
