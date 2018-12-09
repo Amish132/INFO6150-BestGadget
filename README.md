@@ -4,21 +4,22 @@
 
 *Getting Started*
 https://github.com/saiswagath/INFO6150-BestGadget.git
-1. npm install
-2. mongoDB
-3. node server.js
-4. browse to localhost:8080
+1. git clone
+2. npm install(CLI)
+3. mongoDB
+4. node server.js(CLI)
+5. browse to localhost:8080
 
 **Prerequisites**
 * Install node and mongoDB
 
 > #### Built With
 
-Responsive UI design of website using Bootstrap4, HTML5 ,CSS3 and Media Queries
-Used passport.js to support authentication using local strategy
-Integrated stripe.js for accepting payments from customers
-Stored data such as user credentials, product details, order details of user’s using MongoDB
-Deployed application to Heroku URL:https://sheltered-castle-69385.herokuapp.com/
+Responsive UI design of website using **Bootstrap4, HTML5 ,CSS3** and **Media Queries**
+Used **passport.js** to support authentication using local strategy
+Integrated **stripe.js** for accepting payments from customers
+Stored data such as user credentials, product details, order details of user’s using **MongoDB**
+Deployed application to **Heroku** URL:https://sheltered-castle-69385.herokuapp.com/
 
 > #### Versioning
 
