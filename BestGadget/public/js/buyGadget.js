@@ -105,10 +105,10 @@ function myFunction(productId){
 	}
 	else
 	{
-   var currentHost = window.location.href;
-   var splliter = currentHost.split("/");
-   var final = splliter[0] + "//" +splliter[2];
-   var url = final+'/add-to-cart/' +prodId+ '/true/' +quantityVal;  
+    var currentHost = window.location.href;
+    var splliter = currentHost.split("/");
+    var final = splliter[0] + "//" +splliter[2];
+    var url = final+'/add-to-cart/' +prodId+ '/true/' +quantityVal;  
 	window.location.href =  url;           
 	}
 }
