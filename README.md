@@ -24,7 +24,7 @@ https://github.com/saiswagath/INFO6150-BestGadget.git
 > #### Versioning
 
  We used git as version control software.<br/>
- Repository link: https://github.com/saiswagath/INFO6150-BestGadget
+ Repository link: https://github.com/amish132/INFO6150-BestGadget
 
 > #### Authors
 
