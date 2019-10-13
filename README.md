@@ -3,7 +3,7 @@
 **Designed a consumer electronics e-commerce website using MongoDB ,Express , Handlebars and Node.js**
 
 *Getting Started*
-https://github.com/saiswagath/INFO6150-BestGadget.git
+https://github.com/amish132/INFO6150-BestGadget--MEAN-STACK.git
 1. git clone
 2. npm install(CLI)
 3. mongoDB
@@ -24,7 +24,7 @@ https://github.com/saiswagath/INFO6150-BestGadget.git
 > #### Versioning
 
  We used git as version control software.<br/>
- Repository link: https://github.com/amish132/INFO6150-BestGadget
+ Repository link: https://github.com/amish132/INFO6150-BestGadget--MEAN-STACK
 
 > #### Authors
 
