@@ -1,4 +1,3 @@
-### Project Title
 # Buy Gadgets
 **Designed a consumer electronics e-commerce website using MongoDB ,Express , Handlebars and Node.js**
 
